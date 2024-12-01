@@ -1,4 +1,25 @@
-const productNames = {
+// 定義型別
+type CookerModel = "SH-11F" | "SH-11T" | "SH-12T" | "SH-20S";
+type MixerModel = "SH-201" | "SH-201H" | "SH-301" | "SH-401";
+
+// 定義產品名稱的型別
+type ProductNames = {
+  cookers: {
+    [key in CookerModel]: {
+      zh: string;
+      en: string;
+    };
+  };
+  mixers: {
+    [key in MixerModel]: {
+      zh: string;
+      en: string;
+    };
+  };
+};
+
+// 產品名稱
+const productNames: ProductNames = {
   cookers: {
     "SH-11F": {
       zh: "固定式",
@@ -19,25 +40,54 @@ const productNames = {
   },
   mixers: {
     "SH-201": {
-      zh: "",
-      en: "",
+      zh: "攪拌機",
+      en: "Food Mixer",
     },
     "SH-201H": {
-      zh: "",
-      en: "",
+      zh: "攪拌機",
+      en: "Food Mixer",
     },
     "SH-301": {
-      zh: "",
-      en: "",
+      zh: "攪拌機",
+      en: "Food Mixer",
     },
     "SH-401": {
-      zh: "",
-      en: "",
+      zh: "攪拌機",
+      en: "Food Mixer",
     },
   },
 };
 
-const productData = {
+// 定義 productData 的型別
+type ProductData = {
+  cookers: {
+    types: Array<{
+      model: CookerModel;
+      specs: {
+        capacity: string[];
+      };
+      image: string;
+    }>;
+  };
+  mixers: {
+    models: Array<{
+      model: MixerModel;
+      specs: {
+        power: string;
+        capacity: string;
+        doughCapacity: string;
+        bowlDiameter: string;
+        bowlDepth: string;
+        dimensions: string;
+        weight: string;
+      };
+      image: string;
+    }>;
+  };
+};
+
+// 產品資料
+const productData: ProductData = {
   cookers: {
     types: [
       {
