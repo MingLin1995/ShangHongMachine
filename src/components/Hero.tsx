@@ -2,11 +2,9 @@
 
 import Image from 'next/image'
 import { useLanguageStore } from '@/stores/languageStore'
-import { useState } from 'react'
 
 export default function Hero() {
     const { translations } = useLanguageStore()
-    const [showModal, setShowModal] = useState(false)
 
     const scrollToProducts = () => {
         const productsSection = document.getElementById('services')

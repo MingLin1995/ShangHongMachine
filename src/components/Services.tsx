@@ -4,7 +4,7 @@ import { useLanguageStore } from '@/stores/languageStore'
 import Image from 'next/image'
 
 export default function Services() {
-    const { language, translations } = useLanguageStore()
+    const { translations } = useLanguageStore()
 
     return (
         <div id="services" className="py-16 bg-gray-50 dark:bg-gray-800">

@@ -3,7 +3,7 @@
 import { useLanguageStore } from '@/stores/languageStore'
 
 export default function Footer() {
-    const { language, translations } = useLanguageStore()
+    const { translations } = useLanguageStore()
     const currentYear = new Date().getFullYear()
 
     return (
