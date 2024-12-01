@@ -1,4 +1,42 @@
-// 共用的產品數據
+const productNames = {
+  cookers: {
+    "SH-11F": {
+      zh: "固定式",
+      en: "Fixed Type",
+    },
+    "SH-11T": {
+      zh: "傾倒式",
+      en: "Tilting Type",
+    },
+    "SH-12T": {
+      zh: "傾倒式",
+      en: "Tilting Type",
+    },
+    "SH-20S": {
+      zh: "蒸氣加熱 & 傾倒式",
+      en: "Steam Heating & Tilting Type",
+    },
+  },
+  mixers: {
+    "SH-201": {
+      zh: "",
+      en: "",
+    },
+    "SH-201H": {
+      zh: "",
+      en: "",
+    },
+    "SH-301": {
+      zh: "",
+      en: "",
+    },
+    "SH-401": {
+      zh: "",
+      en: "",
+    },
+  },
+};
+
 const productData = {
   cookers: {
     types: [
@@ -127,7 +165,7 @@ export const translations = {
           },
           types: productData.cookers.types.map((type) => ({
             ...type,
-            name: "固定式炒食機",
+            name: productNames.cookers[type.model].zh,
           })),
         },
         mixers: {
@@ -144,7 +182,7 @@ export const translations = {
           },
           models: productData.mixers.models.map((model) => ({
             ...model,
-            name: `攪拌機-${model.model}`,
+            name: productNames.mixers[model.model].zh,
           })),
         },
       },
@@ -206,7 +244,7 @@ export const translations = {
           },
           types: productData.cookers.types.map((type) => ({
             ...type,
-            name: "Fixed Type Cooking Mixer",
+            name: productNames.cookers[type.model].en,
           })),
         },
         mixers: {
@@ -223,7 +261,7 @@ export const translations = {
           },
           models: productData.mixers.models.map((model) => ({
             ...model,
-            name: `Food Mixer-${model.model}`,
+            name: productNames.mixers[model.model].en,
           })),
         },
       },
