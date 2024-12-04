@@ -13,7 +13,7 @@ export const metadata: Metadata = {
         siteName: '上泓機械',
         title: '上泓機械 - 台灣專業食品機械製造商',
         description: '台灣在地食品機械製造商，專營工業用攪拌機、炒食機等食品加工設備。20年以上專業技術經驗，提供最優質的機械設備方案。',
-        url: 'https://shanghongmachine.com',
+        url: 'https://www.shanghongmachine.com',
         images: [
             {
                 url: '/images/og-image.jpg',
@@ -35,9 +35,9 @@ export default function Home() {
                         "@context": "https://schema.org",
                         "@type": "Organization",
                         "name": "上泓機械有限公司",
-                        "url": "https://shanghongmachine.com",
-                        "logo": "https://shanghongmachine.com/images/logo.png",
-                        "image": "https://shanghongmachine.com/images/og-image.jpg",
+                        "alternateName": "SHANG HONG MACHINE CO.,LTD",
+                        "url": "https://www.shanghongmachine.com",
+                        "logo": "https://www.shanghongmachine.com/images/logo.png",
                         "description": "台灣專業食品機械製造商，專注於生產高品質的攪拌機與炒食機",
                         "address": {
                             "@type": "PostalAddress",
@@ -55,7 +55,25 @@ export default function Home() {
                             "contactType": "customer service",
                             "areaServed": ["TW"],
                             "availableLanguage": ["Chinese", "Min Nan Chinese", "English"]
-                        }
+                        },
+                        "makesOffer": [
+                            {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "工業用攪拌機",
+                                    "description": "專業食品級工業用攪拌機，適用於各種食品加工場域"
+                                }
+                            },
+                            {
+                                "@type": "Offer",
+                                "itemOffered": {
+                                    "@type": "Product",
+                                    "name": "炒食機",
+                                    "description": "高效能工業用炒食機，適合大量食材炒製"
+                                }
+                            }
+                        ]
                     })
                 }}
             />

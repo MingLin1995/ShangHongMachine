@@ -6,26 +6,40 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-    metadataBase: new URL('https://shanghongmachine.com'),
+    metadataBase: new URL('https://www.shanghongmachine.com/'),
     title: {
-        template: '%s | 上泓機械',
-        default: '上泓機械 - 專業食品機械製造商 | 工業用攪拌機 | 炒食機',
+        template: '%s | 上泓機械 - 專業食品機械製造商',
+        default: '上泓機械 - 台灣專業食品機械製造商 | 攪拌機 | 炒食機',
     },
-    description: '上泓機械專業製造食品機械設備，主要產品包括工業用攪拌機、炒食機等食品加工設備。位於台中市，擁有20年以上專業技術經驗。',
+    description: '上泓機械專業製造食品機械設備，主要產品包括工業用攪拌機、炒食機等食品加工設備。位於台中市，擁有20年以上專業技術經驗，提供最優質的機械設備方案。',
     keywords: [
-        '台灣食品機械',
+        '食品機械',
+        '炒食機',
+        '攪拌機',
         '工業用攪拌機',
         '工業用炒食機',
         '食品加工設備',
+        '台灣食品機械',
         '台灣機械製造',
         '食品機械設備',
         '上泓機械',
+        '食品攪拌機',
+        '工業攪拌機',
+        '食品炒食機',
     ].join(', '),
-    manifest: '/site.webmanifest',
-    icons: {
-        icon: [
-            { url: '/images/logo.png' },
-        ],
+    alternates: {
+        canonical: 'https://www.shanghongmachine.com',
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            'max-video-preview': -1,
+            'max-image-preview': 'large',
+            'max-snippet': -1,
+        },
     },
 }
 
@@ -38,7 +52,7 @@ export default function RootLayout({
         <html lang="zh" suppressHydrationWarning>
             <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
-                <link rel="canonical" href="https://shanghongmachine.com" />
+                <link rel="canonical" href="https://www.shanghongmachine.com" />
             </head>
             <body className={inter.className}>
                 <ClientLayout>
