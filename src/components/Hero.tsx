@@ -32,25 +32,25 @@ export default function Hero() {
             </div>
 
             <div className="relative z-10 hero min-h-screen bg-gradient-to-b from-[#993333]/20 to-[#666666]/30">
-                <div className="hero-content text-center">
-                    <div className="max-w-3xl">
-                        <div className="mb-8 flex flex-col justify-center">
-                            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg">
+                <div className="hero-content text-center w-full">
+                    <div className="max-w-3xl w-full">
+                        <div className="mb-8 flex flex-col items-center justify-center h-[160px]">
+                            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 drop-shadow-lg whitespace-nowrap">
                                 {translations.hero.title}
                             </h1>
                             <p className="text-xl md:text-2xl text-gray-100 drop-shadow-md">
                                 {translations.hero.subtitle}
                             </p>
                         </div>
-                        <div className="relative w-full h-[300px] flex items-center justify-center mb-8">
+                        <div className="relative w-full max-w-[600px] h-[250px] mx-auto flex items-center justify-center mb-8">
                             <div className="absolute inset-0 bg-white/65 dark:bg-gray-800/80 backdrop-blur-sm rounded-xl shadow-lg"></div>
-                            <div className="relative w-[350px] h-[250px]">
+                            <div className="relative w-[300px] h-[200px]">
                                 <Image
                                     src="/images/logo.png"
                                     alt={translations.hero.title}
                                     fill
                                     className="object-contain"
-                                    sizes="350px"
+                                    sizes="300px"
                                     priority={true}
                                 />
                             </div>
