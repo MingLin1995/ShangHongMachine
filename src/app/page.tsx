@@ -87,21 +87,37 @@ export default function Home() {
                         },
                         {
                             "@context": "https://schema.org",
-                            "@type": "BreadcrumbList",
-                            "itemListElement": [
-                                {
-                                    "@type": "ListItem",
-                                    "position": 1,
-                                    "name": "首頁",
-                                    "item": "https://www.shanghongmachine.com"
-                                },
-                                {
-                                    "@type": "ListItem",
-                                    "position": 2,
-                                    "name": "產品介紹",
-                                    "item": "https://www.shanghongmachine.com/#services"
-                                }
-                            ]
+                            "@type": "WebPage",
+                            "url": "https://www.shanghongmachine.com",
+                            "name": "上泓機械 - 專業食品機械製造商",
+                            "description": "上泓機械專業製造食品機械設備，主要產品包括工業用攪拌機、炒食機等食品加工設備",
+                            "isPartOf": {
+                                "@type": "WebSite",
+                                "url": "https://www.shanghongmachine.com"
+                            },
+                            "mainEntity": {
+                                "@type": "ItemList",
+                                "itemListElement": [
+                                    {
+                                        "@type": "ListItem",
+                                        "position": 1,
+                                        "name": "關於我們",
+                                        "description": "上泓機械有限公司是一家專業製造食品機械的企業"
+                                    },
+                                    {
+                                        "@type": "ListItem",
+                                        "position": 2,
+                                        "name": "產品介紹",
+                                        "description": "專業食品機械設備，包括炒食機系列與攪拌機系列"
+                                    },
+                                    {
+                                        "@type": "ListItem",
+                                        "position": 3,
+                                        "name": "聯絡我們",
+                                        "description": "位於台中市潭子區，提供專業的食品機械諮詢服務"
+                                    }
+                                ]
+                            }
                         }
                     ])
                 }}
