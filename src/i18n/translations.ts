@@ -215,11 +215,28 @@ export const translations = {
           subtitle: "均勻拌炒，品質保證",
           description: `專注於多元化烹調需求，打造極致拌炒體驗：
 
-          • 均勻受熱：確保食材風味完美呈現
-          • 多鍋具選擇：單層鍋、導熱油鍋、蒸汽鍋，應對不同烹調需求
-          • 適用多樣食品：花生糖、肉燥、醬料、糖水、鳳梨餡等輕鬆完成
-          • 自動化操作：節省人力，提升效率
-          • 衛生易清潔：符合食品安全要求，降低維護負擔`,
+          【均勻受熱】
+          確保食材風味完美呈現，讓每一批次都能維持一致品質
+
+          【多鍋具選擇】
+          ・單層鍋：適合一般炒菜需求
+          ・導熱油鍋：確保均勻加熱
+          ・蒸汽鍋：特殊加工處理
+
+          【適用範圍】
+          ・糖果類：花生糖、糖水
+          ・調味類：肉燥、各式醬料
+          ・餡料類：豆沙餡、鳳梨餡
+
+          【智能操作】
+          ・自動化程序控制
+          ・人力成本節省
+          ・生產效率提升
+
+          【安全衛生】
+          ・符合食品安全規範
+          ・清潔維護便利
+          ・衛生標準把關`,
           specs: {
             model: "型號",
             capacity: "容量",
@@ -234,20 +251,26 @@ export const translations = {
           subtitle: "一機多用，創造更多可能",
           description: `配置三種專用攪拌配件，輕鬆應對多元加工場景：
 
-          1. 攪拌勾：適合麵團製作
-          • 應用於麵包、水餃皮、派皮、包子等各類麵製品
+          【攪拌勾】麵團專家
+          ・主要用途：各式麵團製作
+          ・適用產品：麵包、水餃皮、派皮、包子等
+          ・特點：確保麵團韌性與口感
 
-          2. 攪拌扇：軟質食材的理想選擇
-          • 專為果醬、水餃餡、餅乾及各類餡料設計
+          【攪拌扇】餡料達人
+          ・主要用途：軟質食材攪拌
+          ・適用產品：果醬、餡料、餅乾等
+          ・特點：均勻混合，口感細膩
 
-          3. 攪拌球：處理稀軟混合物的專家
-          • 完美用於奶油、美乃滋、蛋糕、發糕等食品製作
+          【攪拌球】乳化專家
+          ・主要用途：稀軟食材攪拌
+          ・適用產品：奶油、美乃滋、蛋糕等
+          ・特點：完美乳化，口感綿密
 
-          功能亮點：
-          • 多功能性設計，一機多用
-          • 攪拌穩定，效果均勻
-          • 符合食品安全標準，安心使用
-          • 操作簡單，清潔便利`,
+          【核心優勢】
+          ・多功能整合設計
+          ・穩定攪拌效果
+          ・食品安全認證
+          ・簡易操作維護`,
           specs: {
             model: "型號",
             power: "馬力",
@@ -323,11 +346,28 @@ export const translations = {
           subtitle: "Even Cooking, Quality Assured",
           description: `Focused on diverse cooking needs, delivering ultimate mixing experience:
 
-          • Even Heating: Ensures perfect flavor presentation
-          • Multiple Pot Options: Single layer, Heat conducting oil, Steam pot for different cooking needs
-          • Wide Application: Easily handles peanut candy, meat sauce, condiments, sugar syrup, pineapple filling
-          • Automated Operation: Labor-saving, efficiency-enhancing
-          • Hygienic & Easy to Clean: Meets food safety requirements, reduces maintenance burden`,
+          [HEATING SYSTEM]
+          Precise temperature control for perfect flavor presentation
+          
+          [POT OPTIONS]
+          ・Single Layer: Standard cooking
+          ・Heat Conducting: Even heating
+          ・Steam Pot: Special processing
+          
+          [APPLICATIONS]
+          ・Confectionery: Peanut candy, Syrup
+          ・Seasonings: Meat sauce, Condiments
+          ・Fillings: Bean paste, Pineapple
+          
+          [OPERATION]
+          ・Automated control
+          ・Labor saving
+          ・Enhanced efficiency
+          
+          [SAFETY & HYGIENE]
+          ・Food safety compliant
+          ・Easy maintenance
+          ・Hygiene assured`,
           specs: {
             model: "MODEL NO",
             capacity: "CAPACITY",
@@ -340,22 +380,28 @@ export const translations = {
         mixers: {
           title: "Food Mixer Series",
           subtitle: "One Machine, Multiple Possibilities",
-          description: `Equipped with three specialized mixing attachments for various processing scenarios:
+          description: `Three specialized attachments for comprehensive processing needs:
 
-          1. Dough Hook: Perfect for Dough Making
-          • Applications: Bread, dumpling skin, pie crust, buns, and various pastries
+          [DOUGH HOOK] Dough Expert
+          ・Main Use: Firm dough processing
+          ・Products: Bread, Dumpling skin, Pastry
+          ・Feature: Perfect texture control
 
-          2. Flat Beater: Ideal for Soft Ingredients
-          • Designed for jam, dumpling filling, cookies, and various fillings
+          [FLAT BEATER] Filling Master
+          ・Main Use: Soft ingredient mixing
+          ・Products: Jam, Fillings, Cookies
+          ・Feature: Even blending
 
-          3. Wire Whip: Expert in Soft Mixture Processing
-          • Perfect for butter, mayonnaise, cake, steamed cake production
+          [WIRE WHIP] Emulsion Pro
+          ・Main Use: Light mixture processing
+          ・Products: Butter, Mayo, Cake
+          ・Feature: Perfect emulsion
 
-          Key Features:
-          • Multi-functional design, versatile applications
-          • Stable mixing, consistent results
-          • Food safety compliant, reliable usage
-          • Easy operation and cleaning`,
+          [CORE BENEFITS]
+          ・Integrated design
+          ・Stable performance
+          ・Safety certified
+          ・Easy operation`,
           specs: {
             model: "MODEL NO",
             power: "POWER",
