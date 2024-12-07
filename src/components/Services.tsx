@@ -9,15 +9,31 @@ export default function Services() {
     return (
         <div id="services" className="py-16 bg-gray-50 dark:bg-gray-800">
             <div className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white">
+                <h2 className="text-4xl font-bold text-center mb-6 text-gray-800 dark:text-white">
                     {translations.products.title}
                 </h2>
+                <div className="text-center mb-12">
+                    <h3 className="text-2xl md:text-3xl font-bold mb-4 text-[#993333] dark:text-[#ff9999]">
+                        {translations.products.intro}
+                    </h3>
+                    <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
+                        {translations.products.description}
+                    </p>
+                </div>
 
                 {/* 炒食機系列 */}
                 <div className="mb-20">
                     <h3 className="text-3xl font-bold text-center mb-4 text-gray-800 dark:text-white">
                         {translations.products.categories.cookers.title}
                     </h3>
+                    <h4 className="text-xl md:text-2xl font-semibold text-center mb-6 text-[#993333] dark:text-[#ff9999]">
+                        {translations.products.categories.cookers.subtitle}
+                    </h4>
+                    <div className="mb-12 max-w-4xl mx-auto">
+                        <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 whitespace-pre-line leading-relaxed">
+                            {translations.products.categories.cookers.description}
+                        </p>
+                    </div>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         {translations.products.categories.cookers.types.map((type, index) => (
                             <div key={index} className="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden">
@@ -78,6 +94,14 @@ export default function Services() {
                     <h3 className="text-3xl font-bold text-center mb-4 text-gray-800 dark:text-white">
                         {translations.products.categories.mixers.title}
                     </h3>
+                    <h4 className="text-xl md:text-2xl font-semibold text-center mb-6 text-[#993333] dark:text-[#ff9999]">
+                        {translations.products.categories.mixers.subtitle}
+                    </h4>
+                    <div className="mb-12 max-w-4xl mx-auto">
+                        <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 whitespace-pre-line leading-relaxed">
+                            {translations.products.categories.mixers.description}
+                        </p>
+                    </div>
                     <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                         {translations.products.categories.mixers.models.map((model, index) => (
                             <div key={index} className="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden">

@@ -206,9 +206,20 @@ export const translations = {
     },
     products: {
       title: "產品介紹",
+      intro: "高效食品加工設備，助力您提升產能",
+      description:
+        "我們的炒食機與攪拌機系列專為食品加工廠、餐廳及創業工作室設計，為您的食品製作過程提供高效且穩定的解決方案。無論是精緻甜點、風味醬料，還是多樣化的餡料製作，都能輕鬆應對。",
       categories: {
         cookers: {
           title: "炒食機系列",
+          subtitle: "均勻拌炒，品質保證",
+          description: `專注於多元化烹調需求，打造極致拌炒體驗：
+
+          • 均勻受熱：確保食材風味完美呈現
+          • 多鍋具選擇：單層鍋、導熱油鍋、蒸汽鍋，應對不同烹調需求
+          • 適用多樣食品：花生糖、肉燥、醬料、糖水、鳳梨餡等輕鬆完成
+          • 自動化操作：節省人力，提升效率
+          • 衛生易清潔：符合食品安全要求，降低維護負擔`,
           specs: {
             model: "型號",
             capacity: "容量",
@@ -220,6 +231,23 @@ export const translations = {
         },
         mixers: {
           title: "攪拌機系列",
+          subtitle: "一機多用，創造更多可能",
+          description: `配置三種專用攪拌配件，輕鬆應對多元加工場景：
+
+          1. 攪拌勾：適合麵團製作
+          • 應用於麵包、水餃皮、派皮、包子等各類麵製品
+
+          2. 攪拌扇：軟質食材的理想選擇
+          • 專為果醬、水餃餡、餅乾及各類餡料設計
+
+          3. 攪拌球：處理稀軟混合物的專家
+          • 完美用於奶油、美乃滋、蛋糕、發糕等食品製作
+
+          功能亮點：
+          • 多功能性設計，一機多用
+          • 攪拌穩定，效果均勻
+          • 符合食品安全標準，安心使用
+          • 操作簡單，清潔便利`,
           specs: {
             model: "型號",
             power: "馬力",
@@ -285,9 +313,21 @@ export const translations = {
     },
     products: {
       title: "Products",
+      intro:
+        "High-Efficiency Food Processing Equipment for Enhanced Productivity",
+      description:
+        "Our cooking mixers and food mixers are specially designed for food processing factories, restaurants, and startup workshops, providing efficient and stable solutions for your food production. Whether it's delicate desserts, flavorful sauces, or various fillings, we've got you covered.",
       categories: {
         cookers: {
           title: "Cooking Mixer Series",
+          subtitle: "Even Cooking, Quality Assured",
+          description: `Focused on diverse cooking needs, delivering ultimate mixing experience:
+
+          • Even Heating: Ensures perfect flavor presentation
+          • Multiple Pot Options: Single layer, Heat conducting oil, Steam pot for different cooking needs
+          • Wide Application: Easily handles peanut candy, meat sauce, condiments, sugar syrup, pineapple filling
+          • Automated Operation: Labor-saving, efficiency-enhancing
+          • Hygienic & Easy to Clean: Meets food safety requirements, reduces maintenance burden`,
           specs: {
             model: "MODEL NO",
             capacity: "CAPACITY",
@@ -299,6 +339,23 @@ export const translations = {
         },
         mixers: {
           title: "Food Mixer Series",
+          subtitle: "One Machine, Multiple Possibilities",
+          description: `Equipped with three specialized mixing attachments for various processing scenarios:
+
+          1. Dough Hook: Perfect for Dough Making
+          • Applications: Bread, dumpling skin, pie crust, buns, and various pastries
+
+          2. Flat Beater: Ideal for Soft Ingredients
+          • Designed for jam, dumpling filling, cookies, and various fillings
+
+          3. Wire Whip: Expert in Soft Mixture Processing
+          • Perfect for butter, mayonnaise, cake, steamed cake production
+
+          Key Features:
+          • Multi-functional design, versatile applications
+          • Stable mixing, consistent results
+          • Food safety compliant, reliable usage
+          • Easy operation and cleaning`,
           specs: {
             model: "MODEL NO",
             power: "POWER",
