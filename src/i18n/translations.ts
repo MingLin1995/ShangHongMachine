@@ -326,7 +326,7 @@ export const translations = {
       story: {
         title: "Company Profile",
         content:
-          "SHANG HONG MACHINE CO.,LTD is a professional manufacturer of food machinery, specializing in producing food mixer and cooking mixer. We are committed to technological innovation and diversified product development, offering comprehensive technical integration solutions with the goal of achieving mutual progress with our customers.",
+          "SHANG HONG MACHINE CO.,LTD is a professional manufacturer of food machinery, specializing in producing food mixers and cooking mixers. We are committed to technological innovation and diversified product development, offering comprehensive technical integration solutions with the goal of achieving mutual progress with our customers.",
       },
       vision: {
         title: "Our Vision",
@@ -344,7 +344,7 @@ export const translations = {
         cookers: {
           title: "Cooking Mixer Series",
           subtitle: "Even Cooking, Quality Assured",
-          description: `Focused on diverse cooking needs, delivering ultimate mixing experience:
+          description: `Focusing on diverse cooking needs, delivering ultimate mixing experience:
 
           [HEATING SYSTEM]
           Precise temperature control for perfect flavor presentation
@@ -361,7 +361,7 @@ export const translations = {
           
           [OPERATION]
           ・Automated control
-          ・Labor saving
+          ・Labor cost saving
           ・Enhanced efficiency
           
           [SAFETY & HYGIENE]
@@ -369,7 +369,7 @@ export const translations = {
           ・Easy maintenance
           ・Hygiene assured`,
           specs: {
-            model: "MODEL NO",
+            model: "MODEL NO.",
             capacity: "CAPACITY",
           },
           types: productData.cookers.types.map((type) => ({
@@ -384,7 +384,7 @@ export const translations = {
 
           [DOUGH HOOK] Dough Expert
           ・Main Use: Firm dough processing
-          ・Products: Bread, Dumpling skin, Pastry
+          ・Products: Bread, Dumpling wrappers, Pastry
           ・Feature: Perfect texture control
 
           [FLAT BEATER] Filling Master
@@ -403,7 +403,7 @@ export const translations = {
           ・Safety certified
           ・Easy operation`,
           specs: {
-            model: "MODEL NO",
+            model: "MODEL NO.",
             power: "POWER",
             capacity: "BOWL CAPACITY",
             doughCapacity: "DOUGH CAPACITY",
