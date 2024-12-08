@@ -27,6 +27,9 @@ const config: Config = {
           "2xl": "6rem",
         },
       },
+      screens: {
+        xs: "400px",
+      },
     },
   },
   plugins: [require("daisyui")],
