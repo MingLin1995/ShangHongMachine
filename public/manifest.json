@@ -1,0 +1,26 @@
+{
+  "name": "上泓機械 - 專業食品機械製造商",
+  "short_name": "上泓機械",
+  "description": "台灣專業食品機械製造商，專注於生產高品質的攪拌機與炒食機",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#993333",
+  "orientation": "portrait-primary",
+  "icons": [
+    {
+      "src": "/images/logo.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    }
+  ],
+  "categories": ["business", "industrial"],
+  "lang": "zh-TW",
+  "dir": "ltr"
+} 

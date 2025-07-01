@@ -4,26 +4,6 @@ import About from '@/components/About'
 import Services from '@/components/Services'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
-import { Metadata } from 'next'
-
-export const metadata: Metadata = {
-    openGraph: {
-        type: 'website',
-        locale: 'zh_TW',
-        siteName: '上泓機械',
-        title: '上泓機械 - 台灣專業食品機械製造商',
-        description: '台灣在地食品機械製造商，專營工業用攪拌機、炒食機等食品加工設備。20年以上專業技術經驗，提供最優質的機械設備方案。',
-        url: 'https://www.shanghongmachine.com',
-        images: [
-            {
-                url: '/images/og-image.jpg',
-                width: 1200,
-                height: 630,
-                alt: '上泓機械 - 台灣專業食品機械製造商',
-            },
-        ],
-    },
-}
 
 export default function Home() {
     return (
@@ -34,7 +14,7 @@ export default function Home() {
                     __html: JSON.stringify([
                         {
                             "@context": "https://schema.org",
-                            "@type": "Organization",
+                            "@type": "LocalBusiness",
                             "name": "上泓機械有限公司",
                             "alternateName": "SHANG HONG MACHINE CO.,LTD",
                             "url": "https://www.shanghongmachine.com",
@@ -48,6 +28,17 @@ export default function Home() {
                                 "streetAddress": "大富路3段33巷20號",
                                 "postalCode": "427341"
                             },
+                            "geo": {
+                                "@type": "GeoCoordinates",
+                                "latitude": "24.2139",
+                                "longitude": "120.7034"
+                            },
+                            "telephone": "+886-4-25341453",
+                            "faxNumber": "+886-4-25341553",
+                            "email": "shanghong1002@gmail.com",
+                            "openingHours": "Mo-Fr 08:00-18:00",
+                            "priceRange": "$$",
+                            "areaServed": ["TW"],
                             "contactPoint": {
                                 "@type": "ContactPoint",
                                 "telephone": "+886-4-25341453",
@@ -57,24 +48,38 @@ export default function Home() {
                                 "areaServed": ["TW"],
                                 "availableLanguage": ["Chinese", "Min Nan Chinese", "English"]
                             },
-                            "makesOffer": [
-                                {
-                                    "@type": "Offer",
-                                    "itemOffered": {
-                                        "@type": "Product",
-                                        "name": "工業用攪拌機",
-                                        "description": "專業食品級工業用攪拌機，適用於各種食品加工場域"
+                            "hasOfferCatalog": {
+                                "@type": "OfferCatalog",
+                                "name": "食品機械設備",
+                                "itemListElement": [
+                                    {
+                                        "@type": "Offer",
+                                        "itemOffered": {
+                                            "@type": "Product",
+                                            "name": "工業用攪拌機",
+                                            "description": "專業食品級工業用攪拌機，適用於各種食品加工場域",
+                                            "category": "食品機械設備",
+                                            "brand": {
+                                                "@type": "Brand",
+                                                "name": "上泓機械"
+                                            }
+                                        }
+                                    },
+                                    {
+                                        "@type": "Offer",
+                                        "itemOffered": {
+                                            "@type": "Product",
+                                            "name": "炒食機",
+                                            "description": "高效能工業用炒食機，適合大量食材炒製",
+                                            "category": "食品機械設備",
+                                            "brand": {
+                                                "@type": "Brand",
+                                                "name": "上泓機械"
+                                            }
+                                        }
                                     }
-                                },
-                                {
-                                    "@type": "Offer",
-                                    "itemOffered": {
-                                        "@type": "Product",
-                                        "name": "炒食機",
-                                        "description": "高效能工業用炒食機，適合大量食材炒製"
-                                    }
-                                }
-                            ]
+                                ]
+                            }
                         },
                         {
                             "@context": "https://schema.org",
