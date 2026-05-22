@@ -9,10 +9,15 @@ const config: Config = {
   darkMode: "class",
   theme: {
     extend: {
+      fontFamily: {
+        sans: ['var(--font-inter)', 'var(--font-noto)', 'Noto Sans TC', 'system-ui', '-apple-system', 'sans-serif'],
+      },
       colors: {
-        "base-100": "#ffffff",
-        "base-200": "#f8f9fa",
-        "base-content": "#000000",
+        brand: {
+          DEFAULT: '#993333',
+          dark: '#7a2929',
+          light: '#ff9999',
+        },
       },
       spacing: {
         section: "4rem",
@@ -32,29 +37,7 @@ const config: Config = {
       },
     },
   },
-  plugins: [require("daisyui")],
-  daisyui: {
-    themes: [
-      {
-        light: {
-          ...require("daisyui/src/theming/themes")["light"],
-          "base-100": "#ffffff",
-          "base-200": "#f8f9fa",
-          "base-content": "#000000",
-          primary: "#1d4ed8",
-          "primary-content": "#ffffff",
-        },
-        dark: {
-          ...require("daisyui/src/theming/themes")["dark"],
-          "base-100": "#1f2937",
-          "base-200": "#111827",
-          "base-content": "#ffffff",
-          primary: "#3b82f6",
-          "primary-content": "#ffffff",
-        },
-      },
-    ],
-  },
+  plugins: [],
 };
 
 export default config;

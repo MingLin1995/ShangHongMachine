@@ -2,14 +2,21 @@
 @tailwind components;
 @tailwind utilities;
 
+/* ─── Modern Premium tokens ────────────────────────────────────────────────
+   Brand color stays #993333. Light & dark surfaces moved to warm neutrals
+   that match the redesigned components. Old per-utility dark-mode overrides
+   (e.g. .dark .bg-white { background:#2c2b29 }) have been removed — the new
+   components use Tailwind's dark: variants directly, so we don't need them
+   anymore and they would actually fight the design. */
+
 :root {
-  --background: #ffffff;
-  --foreground: #000000;
+  --background: #fcfcfb;
+  --foreground: #0f0f0e;
 }
 
 [data-theme="dark"] {
-  --background: #1f2937;
-  --foreground: #ffffff;
+  --background: #1a1916;
+  --foreground: #f1ece4;
 }
 
 body {
@@ -18,62 +25,44 @@ body {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  font-family: var(--font-inter), var(--font-noto), 'Noto Sans TC', system-ui, -apple-system, 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
-/* 深色模式樣式 */
-.dark {
-  color-scheme: dark;
+.dark { color-scheme: dark; }
+
+/* Selection */
+::selection { background: rgba(153, 51, 51, 0.18); color: inherit; }
+.dark ::selection { background: rgba(255, 153, 153, 0.25); }
+
+/* Scrollbar */
+*::-webkit-scrollbar { width: 10px; height: 10px; }
+*::-webkit-scrollbar-track { background: transparent; }
+*::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.12);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+.dark *::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.12);
+  background-clip: padding-box;
+}
+*::-webkit-scrollbar-thumb:hover {
+  background: #993333;
+  background-clip: padding-box;
 }
 
-.dark body {
-  background-color: #2c2b29;
-  color: #e8e6e3;
-}
-
-/* 深色模式下的組件樣式 */
-.dark .bg-white {
-  background-color: #2c2b29;
-}
-
-.dark .text-gray-700 {
-  color: #d1d5db;
-}
-
-.dark .text-gray-800 {
-  color: #f3f4f6;
-}
-
-.dark .bg-gray-50 {
-  background-color: #111827;
-}
-
-.dark .shadow-lg {
-  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.5);
-}
-
-.dark .bg-gray-900 {
-  background-color: #242321;
-}
-
-.dark .bg-gray-800 {
-  background-color: #2c2b29;
-}
-
-.dark .bg-gray-700 {
-  background-color: #363432;
-}
-
-/* 添加過渡效果 */
+/* Theme transition */
 body,
-.bg-white,
-.text-gray-700,
-.text-gray-800,
-.bg-gray-50,
-.shadow-lg {
-  transition: all 0.3s ease-in-out;
+section,
+footer,
+nav {
+  transition: background-color 300ms ease, color 300ms ease;
 }
 
-/* 修正容器和間距 */
+/* Container — keep existing max-widths to avoid breaking imports */
 .container {
   width: 100%;
   margin-left: auto;
@@ -82,39 +71,8 @@ body,
   padding-right: 1rem;
 }
 
-@media (min-width: 640px) {
-  .container {
-    max-width: 640px;
-  }
-}
-
-@media (min-width: 768px) {
-  .container {
-    max-width: 768px;
-  }
-}
-
-@media (min-width: 1024px) {
-  .container {
-    max-width: 1024px;
-  }
-}
-
-@media (min-width: 1280px) {
-  .container {
-    max-width: 1280px;
-  }
-}
-
-/* 修正卡片和區塊間距 */
-.card {
-  @apply overflow-hidden rounded-lg;
-}
-
-.section {
-  @apply py-16;
-}
-
-.section-inner {
-  @apply container mx-auto px-4;
-}
+@media (min-width: 640px)  { .container { max-width: 640px; } }
+@media (min-width: 768px)  { .container { max-width: 768px; } }
+@media (min-width: 1024px) { .container { max-width: 1024px; } }
+@media (min-width: 1280px) { .container { max-width: 1280px; } }
+@media (min-width: 1536px) { .container { max-width: 1440px; } }
