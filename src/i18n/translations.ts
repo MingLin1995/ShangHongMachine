@@ -59,7 +59,7 @@ const productNames: ProductNames = {
 };
 
 // 定義 productData 的型別
-type ProductData = {
+export type ProductData = {
   cookers: {
     types: Array<{
       model: CookerModel;
@@ -87,7 +87,7 @@ type ProductData = {
 };
 
 // 產品資料
-const productData: ProductData = {
+export const productData: ProductData = {
   cookers: {
     types: [
       {

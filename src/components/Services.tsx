@@ -1,205 +1,156 @@
 "use client"
 
-import { useLanguageStore } from '@/stores/languageStore'
 import Image from 'next/image'
+import { useLanguageStore } from '@/stores/languageStore'
 
-export default function Services() {
-    const { translations } = useLanguageStore()
-
+function SectionHeader({
+    num,
+    total,
+    label,
+    labelEn,
+    title,
+    titleEm,
+    meta,
+}: {
+    num: string
+    total: string
+    label: string
+    labelEn: string
+    title: string
+    titleEm: string
+    meta: string
+}) {
     return (
-        <div id="services" className="py-16 bg-gray-50 dark:bg-gray-800">
-            <div className="container mx-auto px-4">
-                <h2 className="text-4xl font-bold text-center mb-6 text-gray-800 dark:text-white">
-                    {translations.products.title}
+        <div className="flex flex-wrap justify-between items-end gap-8 mb-12">
+            <div className="max-w-[720px]">
+                <div className="flex items-center gap-2.5 text-[12px] font-normal text-[#993333] tracking-[0.18em] uppercase mb-4">
+                    <span className="h-px w-[18px] bg-[#993333]" />
+                    {label} — {labelEn}
+                </div>
+                <h2 className="text-[40px] md:text-[48px] lg:text-[56px] leading-[1.05] tracking-[-0.025em] font-light text-[#0f0f0e] dark:text-[#f1ece4] m-0 [text-wrap:balance]">
+                    {title}
+                    <span className="font-bold">{titleEm}</span>
                 </h2>
-                <div className="text-center mb-12">
-                    <h3 className="text-2xl md:text-3xl font-bold mb-4 text-[#993333] dark:text-[#ff9999]">
-                        {translations.products.intro}
-                    </h3>
-                    <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 max-w-4xl mx-auto">
-                        {translations.products.description}
-                    </p>
-                </div>
-
-                {/* 炒食機系列 */}
-                <div className="mb-20">
-                    <h3 className="text-3xl font-bold text-center mb-4 text-gray-800 dark:text-white">
-                        {translations.products.categories.cookers.title}
-                    </h3>
-                    <h4 className="text-xl md:text-2xl font-semibold text-center mb-6 text-[#993333] dark:text-[#ff9999]">
-                        {translations.products.categories.cookers.subtitle}
-                    </h4>
-                    <div className="mb-12 max-w-4xl mx-auto">
-                        <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 whitespace-pre-line leading-relaxed">
-                            {translations.products.categories.cookers.description}
-                        </p>
-                    </div>
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        {translations.products.categories.cookers.types.map((type, index) => (
-                            <div key={index} className="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden">
-                                <div className="p-6">
-                                    <h4 className="text-2xl font-bold text-center text-gray-800 dark:text-white mb-6">
-                                        {type.name}
-                                    </h4>
-                                    <div className="relative h-64 mb-6">
-                                        <div className="absolute inset-0 p-4">
-                                            <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-gray-300 dark:border-gray-600 rounded-tl-lg"></div>
-                                            <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-gray-300 dark:border-gray-600 rounded-tr-lg"></div>
-                                            <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-gray-300 dark:border-gray-600 rounded-bl-lg"></div>
-                                            <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-gray-300 dark:border-gray-600 rounded-br-lg"></div>
-                                        </div>
-                                        <div className="relative h-full w-full p-6">
-                                            <Image
-                                                src={type.image}
-                                                alt={type.name}
-                                                fill
-                                                className="object-contain"
-                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
-                                        <div className="mb-4">
-                                            <div className="text-gray-600 dark:text-gray-400 font-medium mb-2">
-                                                {translations.products.categories.cookers.specs.model}
-                                            </div>
-                                            <div className="text-gray-800 dark:text-gray-200 text-xl">
-                                                {type.model}
-                                            </div>
-                                        </div>
-                                        <div>
-                                            <div className="text-gray-600 dark:text-gray-400 font-medium mb-2">
-                                                {translations.products.categories.cookers.specs.capacity}
-                                            </div>
-                                            <div className="flex flex-wrap gap-2">
-                                                {type.specs.capacity.map((cap, i) => (
-                                                    <span
-                                                        key={i}
-                                                        className="px-3 py-1 bg-white dark:bg-gray-700 rounded-full text-sm text-gray-800 dark:text-gray-200 shadow-sm"
-                                                    >
-                                                        {cap}
-                                                    </span>
-                                                ))}
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
-                </div>
-
-                {/* 攪拌機系列 */}
+            </div>
+            <div className="text-right text-[13px] text-[#3a3a36] dark:text-[#d1ccc4] pb-2">
                 <div>
-                    <h3 className="text-3xl font-bold text-center mb-4 text-gray-800 dark:text-white">
-                        {translations.products.categories.mixers.title}
-                    </h3>
-                    <h4 className="text-xl md:text-2xl font-semibold text-center mb-6 text-[#993333] dark:text-[#ff9999]">
-                        {translations.products.categories.mixers.subtitle}
-                    </h4>
-                    <div className="mb-12 max-w-4xl mx-auto">
-                        <p className="text-lg md:text-xl text-gray-600 dark:text-gray-300 whitespace-pre-line leading-relaxed">
-                            {translations.products.categories.mixers.description}
-                        </p>
-                    </div>
-                    <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-                        {translations.products.categories.mixers.models.map((model, index) => (
-                            <div key={index} className="bg-white dark:bg-gray-700 rounded-lg shadow-lg overflow-hidden">
-                                <div className="p-6">
-                                    <h4 className="text-2xl font-bold text-center text-gray-800 dark:text-white mb-6">
-                                        {model.name} {model.model}
-                                    </h4>
-                                    <div className="relative h-64 mb-6">
-                                        <div className="absolute inset-0 p-4">
-                                            <div className="absolute top-0 left-0 w-8 h-8 border-t-2 border-l-2 border-gray-300 dark:border-gray-600 rounded-tl-lg"></div>
-                                            <div className="absolute top-0 right-0 w-8 h-8 border-t-2 border-r-2 border-gray-300 dark:border-gray-600 rounded-tr-lg"></div>
-                                            <div className="absolute bottom-0 left-0 w-8 h-8 border-b-2 border-l-2 border-gray-300 dark:border-gray-600 rounded-bl-lg"></div>
-                                            <div className="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 border-gray-300 dark:border-gray-600 rounded-br-lg"></div>
-                                        </div>
-                                        <div className="relative h-full w-full p-6">
-                                            <Image
-                                                src={model.image}
-                                                alt={model.name}
-                                                fill
-                                                className="object-contain"
-                                                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="bg-gray-50 dark:bg-gray-800 rounded-lg p-6">
-                                        <div className="grid grid-cols-1 gap-4">
-                                            <div className="bg-white dark:bg-gray-700 p-4 rounded-lg">
-                                                <span className="text-gray-600 dark:text-gray-400 text-sm block mb-1">
-                                                    {translations.products.categories.mixers.specs.model}
-                                                </span>
-                                                <span className="text-gray-800 dark:text-gray-200 font-medium">
-                                                    {model.model}
-                                                </span>
-                                            </div>
-                                            <div className="bg-white dark:bg-gray-700 p-4 rounded-lg">
-                                                <span className="text-gray-600 dark:text-gray-400 text-sm block mb-1">
-                                                    {translations.products.categories.mixers.specs.power}
-                                                </span>
-                                                <span className="text-gray-800 dark:text-gray-200 font-medium">
-                                                    {model.specs.power}
-                                                </span>
-                                            </div>
-                                            <div className="bg-white dark:bg-gray-700 p-4 rounded-lg">
-                                                <span className="text-gray-600 dark:text-gray-400 text-sm block mb-1">
-                                                    {translations.products.categories.mixers.specs.capacity}
-                                                </span>
-                                                <span className="text-gray-800 dark:text-gray-200 font-medium">
-                                                    {model.specs.capacity}
-                                                </span>
-                                            </div>
-                                            <div className="bg-white dark:bg-gray-700 p-4 rounded-lg">
-                                                <span className="text-gray-600 dark:text-gray-400 text-sm block mb-1">
-                                                    {translations.products.categories.mixers.specs.doughCapacity}
-                                                </span>
-                                                <span className="text-gray-800 dark:text-gray-200 font-medium">
-                                                    {model.specs.doughCapacity}
-                                                </span>
-                                            </div>
-                                            <div className="bg-white dark:bg-gray-700 p-4 rounded-lg">
-                                                <span className="text-gray-600 dark:text-gray-400 text-sm block mb-1">
-                                                    {translations.products.categories.mixers.specs.bowlDiameter}
-                                                </span>
-                                                <span className="text-gray-800 dark:text-gray-200 font-medium">
-                                                    {model.specs.bowlDiameter}
-                                                </span>
-                                            </div>
-                                            <div className="bg-white dark:bg-gray-700 p-4 rounded-lg">
-                                                <span className="text-gray-600 dark:text-gray-400 text-sm block mb-1">
-                                                    {translations.products.categories.mixers.specs.bowlDepth}
-                                                </span>
-                                                <span className="text-gray-800 dark:text-gray-200 font-medium">
-                                                    {model.specs.bowlDepth}
-                                                </span>
-                                            </div>
-                                            <div className="bg-white dark:bg-gray-700 p-4 rounded-lg">
-                                                <span className="text-gray-600 dark:text-gray-400 text-sm block mb-1">
-                                                    {translations.products.categories.mixers.specs.dimensions}
-                                                </span>
-                                                <span className="text-gray-800 dark:text-gray-200 font-medium">
-                                                    {model.specs.dimensions}
-                                                </span>
-                                            </div>
-                                            <div className="bg-white dark:bg-gray-700 p-4 rounded-lg">
-                                                <span className="text-gray-600 dark:text-gray-400 text-sm block mb-1">
-                                                    {translations.products.categories.mixers.specs.weight}
-                                                </span>
-                                                <span className="text-gray-800 dark:text-gray-200 font-medium">
-                                                    {model.specs.weight}
-                                                </span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        ))}
-                    </div>
+                    <span className="text-[28px] font-light tracking-tight text-[#0f0f0e] dark:text-[#f1ece4] mr-1.5">{num}</span>
+                    / {total}
                 </div>
+                <div>{meta}</div>
             </div>
         </div>
+    )
+}
+
+export default function Services() {
+    const { language, translations } = useLanguageStore()
+
+    const cookers = translations.products.categories.cookers
+    const mixers = translations.products.categories.mixers
+
+    return (
+        <>
+            {/* === Cooking Mixer Series === */}
+            <section id="cookers" className="bg-[#f7f6f3] dark:bg-[#161412] py-24 transition-colors duration-300">
+                <div className="container mx-auto px-6 lg:px-14">
+                    <SectionHeader
+                        num="01"
+                        total="02"
+                        label={language === 'zh' ? '炒食機系列' : 'Cooking Mixer Series'}
+                        labelEn={language === 'zh' ? 'Cooking Mixer Series' : '炒食機系列'}
+                        title={language === 'zh' ? '均勻拌炒，' : 'Even cooking, '}
+                        titleEm={language === 'zh' ? '品質保證。' : 'quality assured.'}
+                        meta={language === 'zh' ? '4 款機型 · 50L → 300L' : '4 models · 50L → 300L'}
+                    />
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[18px]">
+                        {cookers.types.map((type, i) => (
+                            <div
+                                key={i}
+                                className="group bg-white dark:bg-[#242220] rounded-3xl p-[22px] border border-[#ececea] dark:border-white/[0.06] flex flex-col gap-3.5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-12px_rgba(0,0,0,0.10)] dark:hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.6)]"
+                            >
+                                <div className="text-[13px] font-bold text-[#993333] tracking-[0.16em] uppercase">{type.model}</div>
+                                <div className="w-full aspect-square bg-[#f7f6f3] dark:bg-[#1a1916] rounded-2xl flex items-center justify-center p-4 relative">
+                                    <Image
+                                        src={type.image}
+                                        alt={type.name}
+                                        fill
+                                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                                        className="object-contain p-4"
+                                    />
+                                </div>
+                                <div className="mt-1">
+                                    <div className="text-[24px] font-bold leading-tight tracking-tight text-[#0f0f0e] dark:text-[#f1ece4]">{type.name}</div>
+                                    <div className="mt-4 space-y-2.5">
+                                        <div className="flex justify-between text-[15px] border-b border-[#ececea] dark:border-white/[0.06] pb-2">
+                                            <span className="text-[#737370] dark:text-[#a8a39b] font-medium">{translations.products.categories.cookers.specs.capacity}</span>
+                                            <span className="text-[#0f0f0e] dark:text-[#f1ece4] font-bold text-right">{type.specs.capacity.join(' / ')}</span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+
+            {/* === Food Mixer Series === */}
+            <section id="mixers" className="bg-[#fcfcfb] dark:bg-[#1a1916] py-24 transition-colors duration-300">
+                <div className="container mx-auto px-6 lg:px-14">
+                    <SectionHeader
+                        num="02"
+                        total="02"
+                        label={language === 'zh' ? '攪拌機系列' : 'Food Mixer Series'}
+                        labelEn={language === 'zh' ? 'Food Mixer Series' : '攪拌機系列'}
+                        title={language === 'zh' ? '一機多用，' : 'One machine, '}
+                        titleEm={language === 'zh' ? '創造更多可能。' : 'many possibilities.'}
+                        meta={language === 'zh' ? '4 款機型 · 1/2HP → 1.5HP' : '4 models · 1/2HP → 1.5HP'}
+                    />
+
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-[18px]">
+                        {mixers.models.map((m, i) => (
+                            <div
+                                key={i}
+                                className="group bg-white dark:bg-[#242220] rounded-3xl p-[22px] border border-[#ececea] dark:border-white/[0.06] flex flex-col gap-3.5 transition-all duration-200 hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-12px_rgba(0,0,0,0.10)] dark:hover:shadow-[0_12px_30px_-10px_rgba(0,0,0,0.6)]"
+                            >
+                                <div className="text-[13px] font-bold text-[#993333] tracking-[0.16em] uppercase">{m.model}</div>
+                                <div className="w-full aspect-square bg-[#f7f6f3] dark:bg-[#1a1916] rounded-2xl flex items-center justify-center p-4 relative">
+                                    <Image
+                                        src={m.image}
+                                        alt={m.name}
+                                        fill
+                                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw"
+                                        className="object-contain p-4"
+                                    />
+                                </div>
+                                <div className="mt-1">
+                                    <div className="text-[22px] font-bold leading-tight tracking-tight text-[#0f0f0e] dark:text-[#f1ece4] mb-4">
+                                        {language === 'zh' ? '攪拌機' : 'Food Mixer'}
+                                    </div>
+                                    
+                                    <div className="space-y-2.5">
+                                        {[
+                                            { label: mixers.specs.power, value: m.specs.power },
+                                            { label: mixers.specs.capacity, value: m.specs.capacity },
+                                            { label: mixers.specs.doughCapacity, value: m.specs.doughCapacity },
+                                            { label: mixers.specs.bowlDiameter, value: m.specs.bowlDiameter },
+                                            { label: mixers.specs.bowlDepth, value: m.specs.bowlDepth },
+                                            { label: mixers.specs.dimensions, value: m.specs.dimensions },
+                                            { label: mixers.specs.weight, value: m.specs.weight },
+                                        ].map((spec, idx) => (
+                                            <div key={idx} className="flex justify-between text-[15px] border-b border-[#ececea] dark:border-white/[0.06] pb-2 last:border-0">
+                                                <span className="text-[#737370] dark:text-[#a8a39b] font-medium">{spec.label}</span>
+                                                <span className="text-[#0f0f0e] dark:text-[#f1ece4] font-bold text-right">{spec.value}</span>
+                                            </div>
+                                        ))}
+                                    </div>
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </section>
+        </>
     )
 } 

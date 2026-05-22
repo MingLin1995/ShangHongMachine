@@ -1,5 +1,6 @@
 import Navbar from '@/components/Navbar'
 import Hero from '@/components/Hero'
+import Stats from '@/components/Stats'
 import About from '@/components/About'
 import Services from '@/components/Services'
 import Contact from '@/components/Contact'
@@ -59,10 +60,7 @@ export default function Home() {
                                             "name": "工業用攪拌機",
                                             "description": "專業食品級工業用攪拌機，適用於各種食品加工場域",
                                             "category": "食品機械設備",
-                                            "brand": {
-                                                "@type": "Brand",
-                                                "name": "上泓機械"
-                                            }
+                                            "brand": { "@type": "Brand", "name": "上泓機械" }
                                         }
                                     },
                                     {
@@ -72,10 +70,7 @@ export default function Home() {
                                             "name": "炒食機",
                                             "description": "高效能工業用炒食機，適合大量食材炒製",
                                             "category": "食品機械設備",
-                                            "brand": {
-                                                "@type": "Brand",
-                                                "name": "上泓機械"
-                                            }
+                                            "brand": { "@type": "Brand", "name": "上泓機械" }
                                         }
                                     }
                                 ]
@@ -89,40 +84,6 @@ export default function Home() {
                             "alternateName": "SHANG HONG MACHINE CO.,LTD",
                             "description": "台灣專業食品機械製造商，專注於生產高品質的攪拌機與炒食機",
                             "inLanguage": ["zh-TW", "en"],
-                        },
-                        {
-                            "@context": "https://schema.org",
-                            "@type": "WebPage",
-                            "url": "https://www.shanghongmachine.com",
-                            "name": "上泓機械 - 專業食品機械製造商",
-                            "description": "上泓機械專業製造食品機械設備，主要產品包括工業用攪拌機、炒食機等食品加工設備",
-                            "isPartOf": {
-                                "@type": "WebSite",
-                                "url": "https://www.shanghongmachine.com"
-                            },
-                            "mainEntity": {
-                                "@type": "ItemList",
-                                "itemListElement": [
-                                    {
-                                        "@type": "ListItem",
-                                        "position": 1,
-                                        "name": "關於我們",
-                                        "description": "上泓機械有限公司是一家專業製造食品機械的企業"
-                                    },
-                                    {
-                                        "@type": "ListItem",
-                                        "position": 2,
-                                        "name": "產品介紹",
-                                        "description": "專業食品機械設備，包括炒食機系列與攪拌機系列"
-                                    },
-                                    {
-                                        "@type": "ListItem",
-                                        "position": 3,
-                                        "name": "聯絡我們",
-                                        "description": "位於台中市潭子區，提供專業的食品機械諮詢服務"
-                                    }
-                                ]
-                            }
                         }
                     ])
                 }}
@@ -130,6 +91,7 @@ export default function Home() {
             <Navbar />
             <main>
                 <Hero />
+                <Stats />
                 <About />
                 <Services />
                 <Contact />

@@ -1,9 +1,20 @@
-import { Inter } from 'next/font/google'
+import { Inter, Noto_Sans_TC } from 'next/font/google'
 import { Metadata } from 'next'
 import { ClientLayout } from '@/components/ClientLayout'
 import './globals.css'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({
+    subsets: ['latin'],
+    variable: '--font-inter',
+    display: 'swap',
+})
+
+const notoSansTC = Noto_Sans_TC({
+    subsets: ['latin'],
+    weight: ['300', '400', '500', '600', '700'],
+    variable: '--font-noto',
+    display: 'swap',
+})
 
 export const metadata: Metadata = {
     metadataBase: new URL('https://www.shanghongmachine.com/'),
@@ -81,7 +92,8 @@ export const metadata: Metadata = {
         images: ['/images/og-image.jpg'],
     },
     verification: {
-        google: 'your-google-verification-code', // 需要替換為實際的 Google Search Console 驗證碼
+        // TODO: 上線前至 Google Search Console 取得驗證碼後替換此字串
+        google: 'your-google-verification-code',
     },
 }
 
@@ -91,7 +103,7 @@ export default function RootLayout({
     children: React.ReactNode
 }) {
     return (
-        <html lang="zh" suppressHydrationWarning>
+        <html lang="zh-TW" suppressHydrationWarning>
             <head>
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
                 <link rel="canonical" href="https://www.shanghongmachine.com" />
@@ -105,7 +117,7 @@ export default function RootLayout({
                 <meta name="apple-mobile-web-app-capable" content="yes" />
                 <meta name="apple-mobile-web-app-status-bar-style" content="default" />
             </head>
-            <body className={inter.className}>
+            <body className={`${inter.variable} ${notoSansTC.variable} font-sans antialiased`}>
                 <ClientLayout>
                     {children}
                 </ClientLayout>
