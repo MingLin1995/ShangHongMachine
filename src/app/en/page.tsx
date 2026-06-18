@@ -6,7 +6,6 @@ import Services from '@/components/Services'
 import FAQ from '@/components/FAQ'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
-import { buildCookerOffers, buildMixerOffers } from '@/i18n/productSchema'
 
 const BUSINESS_SCHEMA_EN = {
     "@context": "https://schema.org",
@@ -44,22 +43,6 @@ const BUSINESS_SCHEMA_EN = {
         "contactType": "customer service",
         "areaServed": ["TW", "Worldwide"],
         "availableLanguage": ["English", "Chinese", "Min Nan Chinese"]
-    },
-    "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "Food Machinery",
-        "itemListElement": [
-            {
-                "@type": "OfferCatalog",
-                "name": "Industrial Cooking Mixer Series 工業用炒食機系列",
-                "itemListElement": buildCookerOffers('en')
-            },
-            {
-                "@type": "OfferCatalog",
-                "name": "Industrial Food Mixer Series 工業用攪拌機系列",
-                "itemListElement": buildMixerOffers('en')
-            }
-        ]
     }
 }
 
@@ -73,8 +56,9 @@ const WEBSITE_SCHEMA_EN = {
     "inLanguage": ["en", "zh-TW"]
 }
 
-// 不再輸出獨立 Product schema（避免觸發 Merchant Listings 嚴格驗證），
-// 產品資訊全部嵌在 LocalBusiness.hasOfferCatalog 內。
+// 完全不輸出任何 @type:"Product"。B2B 詢價式無固定售價，拿不到 Product rich result；
+// 而 Google 會掃描整個 graph，Product 不管巢狀多深都會被驗證並要求
+// offers/review/aggregateRating。產品型號與規格已存在於可見 HTML，SEO 不受影響。
 const SCHEMA_JSON_EN = JSON.stringify([BUSINESS_SCHEMA_EN, WEBSITE_SCHEMA_EN])
 
 export default function HomeEn() {

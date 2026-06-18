@@ -6,7 +6,6 @@ import Services from '@/components/Services'
 import FAQ from '@/components/FAQ'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
-import { buildCookerOffers, buildMixerOffers } from '@/i18n/productSchema'
 
 const BUSINESS_SCHEMA_ZH = {
     "@context": "https://schema.org",
@@ -44,22 +43,6 @@ const BUSINESS_SCHEMA_ZH = {
         "contactType": "customer service",
         "areaServed": ["TW", "Worldwide"],
         "availableLanguage": ["Chinese", "Min Nan Chinese", "English"]
-    },
-    "hasOfferCatalog": {
-        "@type": "OfferCatalog",
-        "name": "食品機械設備",
-        "itemListElement": [
-            {
-                "@type": "OfferCatalog",
-                "name": "工業用炒食機系列 Cooking Mixer Series",
-                "itemListElement": buildCookerOffers('zh')
-            },
-            {
-                "@type": "OfferCatalog",
-                "name": "工業用攪拌機系列 Food Mixer Series",
-                "itemListElement": buildMixerOffers('zh')
-            }
-        ]
     }
 }
 
@@ -74,8 +57,10 @@ const WEBSITE_SCHEMA_ZH = {
 }
 
 // 預先序列化整批 JSON-LD，避免每次 request 重新建構與 stringify。
-// 不再輸出獨立的 Product schema（會觸發 Merchant Listings 嚴格驗證且 B2B 無法滿足）；
-// 產品資訊全部嵌在 LocalBusiness.hasOfferCatalog 內。
+// 完全不輸出任何 @type:"Product"。B2B 詢價式無固定售價，拿不到 Product rich result；
+// 而 Google 會掃描整個 graph，Product 不管巢狀多深（即使包在 Offer→OfferCatalog 裡）
+// 都會被當獨立 Product 驗證並要求 offers/review/aggregateRating。產品型號與規格已完整
+// 存在於可見 HTML（Services 區塊），搜尋引擎照樣讀得到，SEO 不受影響。
 const SCHEMA_JSON_ZH = JSON.stringify([BUSINESS_SCHEMA_ZH, WEBSITE_SCHEMA_ZH])
 
 export default function Home() {
