@@ -10,6 +10,7 @@ import Footer from '@/components/Footer'
 const BUSINESS_SCHEMA_EN = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": "https://www.shanghong-tw.com/#organization",
     "name": "SHANG HONG MACHINE CO.,LTD",
     "alternateName": ["上泓機械有限公司", "SHANG HONG MACHINE", "Shang Hong Machine", "上泓機械"],
     "url": "https://www.shanghong-tw.com/en",
@@ -26,8 +27,8 @@ const BUSINESS_SCHEMA_EN = {
     },
     "geo": {
         "@type": "GeoCoordinates",
-        "latitude": "24.2139",
-        "longitude": "120.7034"
+        "latitude": "24.2278019",
+        "longitude": "120.687568"
     },
     "telephone": "+886-4-25341453",
     "faxNumber": "+886-4-25341553",
@@ -43,17 +44,22 @@ const BUSINESS_SCHEMA_EN = {
         "contactType": "customer service",
         "areaServed": ["TW", "Worldwide"],
         "availableLanguage": ["English", "Chinese", "Min Nan Chinese"]
-    }
+    },
+    "hasMap": "https://www.google.com/maps?cid=16758949604841997549",
+    "sameAs": ["https://www.google.com/maps?cid=16758949604841997549"]
 }
 
 const WEBSITE_SCHEMA_EN = {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": "https://www.shanghong-tw.com/#website",
     "url": "https://www.shanghong-tw.com/en",
     "name": "SHANG HONG MACHINE CO.,LTD",
     "alternateName": ["上泓機械有限公司", "SHANG HONG MACHINE", "Shang Hong Machine", "上泓機械"],
     "description": "SHANG HONG MACHINE — Taiwan-based professional food machinery manufacturer.",
-    "inLanguage": ["en", "zh-TW"]
+    "inLanguage": ["en", "zh-TW"],
+    "publisher": { "@id": "https://www.shanghong-tw.com/#organization" },
+    "about": { "@id": "https://www.shanghong-tw.com/#organization" }
 }
 
 // 完全不輸出任何 @type:"Product"。B2B 詢價式無固定售價，拿不到 Product rich result；
@@ -71,13 +77,13 @@ export default function HomeEn() {
             <Navbar />
             <main>
                 <Hero />
-                <Stats />
-                <About />
-                <Services />
-                <FAQ />
+                <Stats lang="en" />
+                <About lang="en" />
+                <Services lang="en" />
+                <FAQ lang="en" />
                 <Contact />
             </main>
-            <Footer />
+            <Footer lang="en" />
         </>
     )
 }

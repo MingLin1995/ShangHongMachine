@@ -1,9 +1,5 @@
-"use client"
-
-import { useLocale } from '@/hooks/useLocale'
-
-export default function Stats() {
-    const { language } = useLocale()
+export default function Stats({ lang }: { lang: 'zh' | 'en' }) {
+    const language = lang
 
     const items = [
         { n: '20', suffix: '+', label: language === 'zh' ? '年技術經驗' : 'years of expertise' },

@@ -1,7 +1,5 @@
-"use client"
-
 import Image from 'next/image'
-import { useLocale } from '@/hooks/useLocale'
+import { translations as allTranslations } from '@/i18n/translations'
 
 // 拿掉「TEL：xxx」或「Email: xxx」這種前綴，回傳冒號後的內容；
 // 同時容許半形 `:` 與全形 `：` 兩種冒號，避免翻譯被改回半形時靜默壞掉。
@@ -9,8 +7,9 @@ function stripFieldPrefix(s: string): string {
     return s.replace(/^[^：:]+[：:]\s*/, '')
 }
 
-export default function Footer() {
-    const { language, translations } = useLocale()
+export default function Footer({ lang }: { lang: 'zh' | 'en' }) {
+    const language = lang
+    const translations = allTranslations[lang]
     const currentYear = new Date().getFullYear()
 
     const telValue = stripFieldPrefix(translations.contact.tel)

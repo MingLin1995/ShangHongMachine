@@ -1,9 +1,8 @@
-"use client"
+import { translations as allTranslations } from '@/i18n/translations'
 
-import { useLocale } from '@/hooks/useLocale'
-
-export default function About() {
-    const { language, translations } = useLocale()
+export default function About({ lang }: { lang: 'zh' | 'en' }) {
+    const language = lang
+    const translations = allTranslations[lang]
 
     return (
         <section id="about" className="bg-[#fcfcfb] dark:bg-[#1a1916] py-24 lg:py-32 transition-colors duration-300" aria-labelledby="about-heading">
