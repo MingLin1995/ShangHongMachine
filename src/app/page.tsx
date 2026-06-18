@@ -10,6 +10,7 @@ import Footer from '@/components/Footer'
 const BUSINESS_SCHEMA_ZH = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
+    "@id": "https://www.shanghong-tw.com/#organization",
     "name": "上泓機械有限公司",
     "alternateName": ["SHANG HONG MACHINE CO.,LTD", "SHANG HONG MACHINE", "Shang Hong Machine", "上泓機械"],
     "url": "https://www.shanghong-tw.com",
@@ -26,8 +27,8 @@ const BUSINESS_SCHEMA_ZH = {
     },
     "geo": {
         "@type": "GeoCoordinates",
-        "latitude": "24.2139",
-        "longitude": "120.7034"
+        "latitude": "24.2278019",
+        "longitude": "120.687568"
     },
     "telephone": "+886-4-25341453",
     "faxNumber": "+886-4-25341553",
@@ -43,17 +44,22 @@ const BUSINESS_SCHEMA_ZH = {
         "contactType": "customer service",
         "areaServed": ["TW", "Worldwide"],
         "availableLanguage": ["Chinese", "Min Nan Chinese", "English"]
-    }
+    },
+    "hasMap": "https://www.google.com/maps?cid=16758949604841997549",
+    "sameAs": ["https://www.google.com/maps?cid=16758949604841997549"]
 }
 
 const WEBSITE_SCHEMA_ZH = {
     "@context": "https://schema.org",
     "@type": "WebSite",
+    "@id": "https://www.shanghong-tw.com/#website",
     "url": "https://www.shanghong-tw.com",
     "name": "上泓機械有限公司",
     "alternateName": ["SHANG HONG MACHINE CO.,LTD", "SHANG HONG MACHINE", "Shang Hong Machine", "上泓機械"],
     "description": "上泓機械 SHANG HONG MACHINE — 台灣專業食品機械製造商，專注於生產高品質的攪拌機與炒食機。",
-    "inLanguage": ["zh-TW", "en"]
+    "inLanguage": ["zh-TW", "en"],
+    "publisher": { "@id": "https://www.shanghong-tw.com/#organization" },
+    "about": { "@id": "https://www.shanghong-tw.com/#organization" }
 }
 
 // 預先序列化整批 JSON-LD，避免每次 request 重新建構與 stringify。
@@ -73,13 +79,13 @@ export default function Home() {
             <Navbar />
             <main>
                 <Hero />
-                <Stats />
-                <About />
-                <Services />
-                <FAQ />
+                <Stats lang="zh" />
+                <About lang="zh" />
+                <Services lang="zh" />
+                <FAQ lang="zh" />
                 <Contact />
             </main>
-            <Footer />
+            <Footer lang="zh" />
         </>
     )
 }

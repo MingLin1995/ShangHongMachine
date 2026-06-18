@@ -30,6 +30,9 @@ body {
   text-rendering: optimizeLegibility;
 }
 
+html { scroll-behavior: smooth; }
+:target { scroll-margin-top: 84px; }
+
 .dark { color-scheme: dark; }
 
 /* Selection */

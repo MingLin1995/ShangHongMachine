@@ -1,8 +1,3 @@
-"use client"
-
-import { useState } from 'react'
-import { useLocale } from '@/hooks/useLocale'
-
 type FaqItem = { q: string; a: string }
 
 const FAQ_ZH: FaqItem[] = [
@@ -67,10 +62,13 @@ const FAQ_EN: FaqItem[] = [
     },
 ]
 
-function faqSchemaJson(items: FaqItem[]): string {
+function faqSchemaJson(items: FaqItem[], inLanguage: string): string {
     return JSON.stringify({
         '@context': 'https://schema.org',
         '@type': 'FAQPage',
+        inLanguage,
+        isPartOf: { '@id': 'https://www.shanghong-tw.com/#website' },
+        about: { '@id': 'https://www.shanghong-tw.com/#organization' },
         mainEntity: items.map((it) => ({
             '@type': 'Question',
             name: it.q,
@@ -80,17 +78,12 @@ function faqSchemaJson(items: FaqItem[]): string {
 }
 
 // 預先序列化兩種語言版本，避免每次 render 重建。
-const FAQ_SCHEMA_JSON_ZH = faqSchemaJson(FAQ_ZH)
-const FAQ_SCHEMA_JSON_EN = faqSchemaJson(FAQ_EN)
+const FAQ_SCHEMA_JSON_ZH = faqSchemaJson(FAQ_ZH, 'zh-TW')
+const FAQ_SCHEMA_JSON_EN = faqSchemaJson(FAQ_EN, 'en')
 
 function FAQItem({ item, defaultOpen }: { item: FaqItem; defaultOpen: boolean }) {
-    const [open, setOpen] = useState(defaultOpen)
     return (
-        <details
-            className="group py-5"
-            open={open}
-            onToggle={(e) => setOpen((e.target as HTMLDetailsElement).open)}
-        >
+        <details className="group py-5" open={defaultOpen}>
             <summary className="flex items-start justify-between gap-6 cursor-pointer list-none">
                 <h3 className="text-[18px] md:text-[19px] font-semibold tracking-tight text-[#0f0f0e] dark:text-[#f1ece4] m-0 [text-wrap:balance]">
                     {item.q}
@@ -109,8 +102,8 @@ function FAQItem({ item, defaultOpen }: { item: FaqItem; defaultOpen: boolean })
     )
 }
 
-export default function FAQ() {
-    const { language } = useLocale()
+export default function FAQ({ lang }: { lang: 'zh' | 'en' }) {
+    const language = lang
     const items = language === 'zh' ? FAQ_ZH : FAQ_EN
     const schemaJson = language === 'zh' ? FAQ_SCHEMA_JSON_ZH : FAQ_SCHEMA_JSON_EN
 
