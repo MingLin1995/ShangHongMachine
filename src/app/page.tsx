@@ -6,7 +6,7 @@ import Services from '@/components/Services'
 import FAQ from '@/components/FAQ'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
-import { buildProductSchemas } from '@/i18n/productSchema'
+import { buildCookerOffers, buildMixerOffers } from '@/i18n/productSchema'
 
 const BUSINESS_SCHEMA_ZH = {
     "@context": "https://schema.org",
@@ -52,22 +52,12 @@ const BUSINESS_SCHEMA_ZH = {
             {
                 "@type": "OfferCatalog",
                 "name": "工業用炒食機系列 Cooking Mixer Series",
-                "itemListElement": [
-                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-11F 固定式工業炒食機", "model": "SH-11F" } },
-                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-11T 傾倒式工業炒食機", "model": "SH-11T" } },
-                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-12T 傾倒式工業炒食機（加大）", "model": "SH-12T" } },
-                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-20S 蒸氣加熱傾倒式工業炒食機", "model": "SH-20S" } }
-                ]
+                "itemListElement": buildCookerOffers('zh')
             },
             {
                 "@type": "OfferCatalog",
                 "name": "工業用攪拌機系列 Food Mixer Series",
-                "itemListElement": [
-                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-201 工業用攪拌機", "model": "SH-201" } },
-                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-201H 工業用攪拌機", "model": "SH-201H" } },
-                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-301 工業用攪拌機", "model": "SH-301" } },
-                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-401 工業用攪拌機", "model": "SH-401" } }
-                ]
+                "itemListElement": buildMixerOffers('zh')
             }
         ]
     }
@@ -84,11 +74,9 @@ const WEBSITE_SCHEMA_ZH = {
 }
 
 // 預先序列化整批 JSON-LD，避免每次 request 重新建構與 stringify。
-const SCHEMA_JSON_ZH = JSON.stringify([
-    BUSINESS_SCHEMA_ZH,
-    WEBSITE_SCHEMA_ZH,
-    ...buildProductSchemas('zh'),
-])
+// 不再輸出獨立的 Product schema（會觸發 Merchant Listings 嚴格驗證且 B2B 無法滿足）；
+// 產品資訊全部嵌在 LocalBusiness.hasOfferCatalog 內。
+const SCHEMA_JSON_ZH = JSON.stringify([BUSINESS_SCHEMA_ZH, WEBSITE_SCHEMA_ZH])
 
 export default function Home() {
     return (
