@@ -14,9 +14,16 @@ export default function Navbar() {
     const { theme, toggleTheme } = useTheme()
     const { language, translations } = useLocale()
 
+    const isEn = pathname?.startsWith('/en') ?? false
+    const isHome = pathname === '/' || pathname === '/en'
+    const homeBase = isEn ? '/en' : '/'
+
     const toggleLanguage = () => {
-        const target = pathname?.startsWith('/en') ? '/' : '/en'
-        router.push(target)
+        if (isEn) {
+            router.push(pathname.replace(/^\/en/, '') || '/')
+        } else {
+            router.push(pathname === '/' ? '/en' : `/en${pathname}`)
+        }
     }
 
     useEffect(() => {
@@ -26,31 +33,41 @@ export default function Navbar() {
         return () => window.removeEventListener('scroll', onScroll)
     }, [])
 
-    const scrollToSection = (sectionId: string) => {
-        const section = document.getElementById(sectionId)
-        if (section) {
-            const navbarHeight = 76
-            const sectionTop = section.offsetTop - navbarHeight
-            window.scrollTo({ top: sectionTop, behavior: 'smooth' })
-        }
+    const goToSection = (sectionId: string) => {
         setIsOpen(false)
+        if (isHome) {
+            const section = document.getElementById(sectionId)
+            if (section) {
+                window.scrollTo({ top: section.offsetTop - 76, behavior: 'smooth' })
+            }
+        } else {
+            router.push(`${homeBase}#${sectionId}`)
+        }
     }
 
-    const scrollToTop = () => {
-        window.scrollTo({ top: 0, behavior: 'smooth' })
-        const homePath = pathname?.startsWith('/en') ? '/en' : '/'
-        // 用 router.replace 而非 history.pushState，讓 Next router state 跟 URL 保持同步。
-        // scroll: false 避免覆蓋上面的 smooth scroll。
-        router.replace(homePath, { scroll: false })
+    const goToTop = () => {
+        setIsOpen(false)
+        if (isHome) {
+            window.scrollTo({ top: 0, behavior: 'smooth' })
+            // 用 router.replace 而非 history.pushState，讓 Next router state 跟 URL 保持同步。
+            router.replace(homeBase, { scroll: false })
+        } else {
+            router.push(homeBase)
+        }
+    }
+
+    const goToSeries = (series: 'cookers' | 'mixers') => {
+        setIsOpen(false)
+        router.push(isEn ? `/en/products/${series}` : `/products/${series}`)
     }
 
     const links = [
-        { id: 'top', label: language === 'zh' ? '首頁' : 'Home', onClick: scrollToTop },
-        { id: 'about', label: translations.nav.about, onClick: () => scrollToSection('about') },
-        { id: 'cookers', label: language === 'zh' ? '炒食機' : 'Cookers', onClick: () => scrollToSection('cookers') },
-        { id: 'mixers', label: language === 'zh' ? '攪拌機' : 'Mixers', onClick: () => scrollToSection('mixers') },
-        { id: 'faq', label: language === 'zh' ? '常見問題' : 'FAQ', onClick: () => scrollToSection('faq') },
-        { id: 'contact', label: translations.nav.contact, onClick: () => scrollToSection('contact') },
+        { id: 'top', label: language === 'zh' ? '首頁' : 'Home', onClick: goToTop },
+        { id: 'about', label: translations.nav.about, onClick: () => goToSection('about') },
+        { id: 'cookers', label: language === 'zh' ? '炒食機' : 'Cookers', onClick: () => goToSeries('cookers') },
+        { id: 'mixers', label: language === 'zh' ? '攪拌機' : 'Mixers', onClick: () => goToSeries('mixers') },
+        { id: 'faq', label: language === 'zh' ? '常見問題' : 'FAQ', onClick: () => goToSection('faq') },
+        { id: 'contact', label: translations.nav.contact, onClick: () => goToSection('contact') },
     ]
 
     return (
@@ -78,7 +95,7 @@ export default function Navbar() {
                 </button>
 
                 {/* Brand */}
-                <button onClick={scrollToTop} className="flex items-center gap-3.5 group" aria-label={language === 'zh' ? '上泓機械首頁' : 'SHANG HONG MACHINE home'}>
+                <button onClick={goToTop} className="flex items-center gap-3.5 group" aria-label={language === 'zh' ? '上泓機械首頁' : 'SHANG HONG MACHINE home'}>
                     <Image
                         src="/images/logo.png"
                         alt={language === 'zh' ? '上泓機械 SHANG HONG MACHINE logo' : 'SHANG HONG MACHINE 上泓機械 logo'}
