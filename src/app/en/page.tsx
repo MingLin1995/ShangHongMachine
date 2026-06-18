@@ -53,20 +53,20 @@ const BUSINESS_SCHEMA_EN = {
                 "@type": "OfferCatalog",
                 "name": "Industrial Cooking Mixer Series 工業用炒食機系列",
                 "itemListElement": [
-                    { "@type": "Product", "name": "SH-11F Fixed-Type Industrial Cooking Mixer", "model": "SH-11F" },
-                    { "@type": "Product", "name": "SH-11T Tilting-Type Industrial Cooking Mixer", "model": "SH-11T" },
-                    { "@type": "Product", "name": "SH-12T Tilting-Type Industrial Cooking Mixer (Large)", "model": "SH-12T" },
-                    { "@type": "Product", "name": "SH-20S Steam-Heated Tilting-Type Industrial Cooking Mixer", "model": "SH-20S" }
+                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-11F Fixed-Type Industrial Cooking Mixer", "model": "SH-11F" } },
+                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-11T Tilting-Type Industrial Cooking Mixer", "model": "SH-11T" } },
+                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-12T Tilting-Type Industrial Cooking Mixer (Large)", "model": "SH-12T" } },
+                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-20S Steam-Heated Tilting-Type Industrial Cooking Mixer", "model": "SH-20S" } }
                 ]
             },
             {
                 "@type": "OfferCatalog",
                 "name": "Industrial Food Mixer Series 工業用攪拌機系列",
                 "itemListElement": [
-                    { "@type": "Product", "name": "SH-201 Industrial Food Mixer", "model": "SH-201" },
-                    { "@type": "Product", "name": "SH-201H Industrial Food Mixer", "model": "SH-201H" },
-                    { "@type": "Product", "name": "SH-301 Industrial Food Mixer", "model": "SH-301" },
-                    { "@type": "Product", "name": "SH-401 Industrial Food Mixer", "model": "SH-401" }
+                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-201 Industrial Food Mixer", "model": "SH-201" } },
+                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-201H Industrial Food Mixer", "model": "SH-201H" } },
+                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-301 Industrial Food Mixer", "model": "SH-301" } },
+                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-401 Industrial Food Mixer", "model": "SH-401" } }
                 ]
             }
         ]
