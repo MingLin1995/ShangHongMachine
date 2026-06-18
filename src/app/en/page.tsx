@@ -6,7 +6,7 @@ import Services from '@/components/Services'
 import FAQ from '@/components/FAQ'
 import Contact from '@/components/Contact'
 import Footer from '@/components/Footer'
-import { buildProductSchemas } from '@/i18n/productSchema'
+import { buildCookerOffers, buildMixerOffers } from '@/i18n/productSchema'
 
 const BUSINESS_SCHEMA_EN = {
     "@context": "https://schema.org",
@@ -52,22 +52,12 @@ const BUSINESS_SCHEMA_EN = {
             {
                 "@type": "OfferCatalog",
                 "name": "Industrial Cooking Mixer Series 工業用炒食機系列",
-                "itemListElement": [
-                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-11F Fixed-Type Industrial Cooking Mixer", "model": "SH-11F" } },
-                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-11T Tilting-Type Industrial Cooking Mixer", "model": "SH-11T" } },
-                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-12T Tilting-Type Industrial Cooking Mixer (Large)", "model": "SH-12T" } },
-                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-20S Steam-Heated Tilting-Type Industrial Cooking Mixer", "model": "SH-20S" } }
-                ]
+                "itemListElement": buildCookerOffers('en')
             },
             {
                 "@type": "OfferCatalog",
                 "name": "Industrial Food Mixer Series 工業用攪拌機系列",
-                "itemListElement": [
-                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-201 Industrial Food Mixer", "model": "SH-201" } },
-                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-201H Industrial Food Mixer", "model": "SH-201H" } },
-                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-301 Industrial Food Mixer", "model": "SH-301" } },
-                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-401 Industrial Food Mixer", "model": "SH-401" } }
-                ]
+                "itemListElement": buildMixerOffers('en')
             }
         ]
     }
@@ -83,11 +73,9 @@ const WEBSITE_SCHEMA_EN = {
     "inLanguage": ["en", "zh-TW"]
 }
 
-const SCHEMA_JSON_EN = JSON.stringify([
-    BUSINESS_SCHEMA_EN,
-    WEBSITE_SCHEMA_EN,
-    ...buildProductSchemas('en'),
-])
+// 不再輸出獨立 Product schema（避免觸發 Merchant Listings 嚴格驗證），
+// 產品資訊全部嵌在 LocalBusiness.hasOfferCatalog 內。
+const SCHEMA_JSON_EN = JSON.stringify([BUSINESS_SCHEMA_EN, WEBSITE_SCHEMA_EN])
 
 export default function HomeEn() {
     return (
