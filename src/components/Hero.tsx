@@ -1,17 +1,16 @@
 "use client"
 
 import Image from 'next/image'
-import { useLanguageStore } from '@/stores/languageStore'
+import { useLocale } from '@/hooks/useLocale'
 import { translations as allTranslations, productData } from '@/i18n/translations'
 
 const sh301Data = productData.mixers.models.find(m => m.model === 'SH-301') || { specs: { power: '1HP', capacity: '30L', doughCapacity: '6kg', bowlDiameter: '370mm' } };
 
 export default function Hero() {
-    const { language } = useLanguageStore()
+    const { language } = useLocale()
     const FEATURED_MODEL = 'SH-301'
     const FEATURED_IMAGE = '/images/products/mixer-301.jpg'
 
-    // Get the localized spec labels
     const specsLabels = allTranslations[language].products.categories.mixers.specs
 
     const scrollToProducts = () => {
@@ -29,16 +28,25 @@ export default function Hero() {
     }
 
     return (
-        <section id="top" className="relative min-h-screen bg-[#fcfcfb] dark:bg-[#1a1916] transition-colors duration-300 overflow-hidden">
+        <section id="top" className="relative min-h-screen bg-[#fcfcfb] dark:bg-[#1a1916] transition-colors duration-300 overflow-hidden" aria-labelledby="hero-heading">
             <div className="container mx-auto px-6 lg:px-14 pt-12 pb-0 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-14 items-center min-h-[calc(100vh-76px)]">
                 {/* Left — copy */}
                 <div>
                     <div className="inline-flex items-center gap-2.5 text-[12px] font-normal text-[#737370] dark:text-[#a8a39b] tracking-wider mb-7 whitespace-nowrap">
                         <span className="h-1.5 w-1.5 rounded-full bg-[#993333]" />
-                        <span>{language === 'zh' ? '8 款主力機型 · 2 大系列 · 台灣製造' : '8 PRODUCTS · 2 SERIES · MADE IN TAIWAN'}</span>
+                        <span>
+                            {language === 'zh'
+                                ? '上泓機械 SHANG HONG MACHINE · 工業用攪拌機・炒食機 · 台灣製造'
+                                : 'SHANG HONG MACHINE 上泓機械 · Industrial Food Mixers & Cookers · Made in Taiwan'}
+                        </span>
                     </div>
 
-                    <h1 className="text-[38px] sm:text-[54px] lg:text-[76px] leading-[1.02] tracking-[-0.03em] text-[#0f0f0e] dark:text-[#f1ece4] m-0 [text-wrap:balance] font-light">
+                    <h1 id="hero-heading" className="text-[38px] sm:text-[54px] lg:text-[76px] leading-[1.02] tracking-[-0.03em] text-[#0f0f0e] dark:text-[#f1ece4] m-0 [text-wrap:balance] font-light">
+                        <span className="sr-only">
+                            {language === 'zh'
+                                ? '上泓機械 SHANG HONG MACHINE — 台灣專業食品機械製造商，工業用攪拌機與炒食機。'
+                                : 'SHANG HONG MACHINE 上泓機械 — Taiwan professional food machinery manufacturer of industrial food mixers and cookers. '}
+                        </span>
                         {language === 'zh' ? (
                             <>
                                 專為料理<span className="text-[#737370] dark:text-[#a8a39b]">，</span>
@@ -56,8 +64,8 @@ export default function Hero() {
 
                     <p className="text-[17px] leading-[1.6] text-[#3a3a36] dark:text-[#d1ccc4] mt-8 max-w-[420px] [text-wrap:pretty]">
                         {language === 'zh'
-                            ? '工業用攪拌機與炒食機，為食品加工廠、餐廳、創業 工作室打造，從台中潭子出貨。'
-                            : 'Industrial mixers and cooking mixers, built for food-processing plants, restaurants and startup kitchens — shipped from Tanzi, Taichung.'}
+                            ? '上泓機械（SHANG HONG MACHINE）的工業用攪拌機與炒食機，為食品加工廠、餐廳、創業工作室打造，從台中潭子出貨。'
+                            : 'SHANG HONG MACHINE (上泓機械) — industrial food mixers and cookers built for food-processing plants, restaurants and startup kitchens — shipped from Tanzi, Taichung, Taiwan.'}
                     </p>
 
                     <div className="flex flex-wrap gap-2.5 mt-9">
@@ -89,7 +97,11 @@ export default function Hero() {
                     <div className="relative h-[min(580px,70vh)] w-full max-w-[600px] flex items-center justify-center z-[1]">
                         <Image
                             src={FEATURED_IMAGE}
-                            alt={FEATURED_MODEL}
+                            alt={
+                                language === 'zh'
+                                    ? `${FEATURED_MODEL} 工業用攪拌機 - 上泓機械 SHANG HONG MACHINE 食品機械`
+                                    : `${FEATURED_MODEL} Industrial Food Mixer - SHANG HONG MACHINE 上泓機械 Food Machinery`
+                            }
                             fill
                             sizes="(max-width: 1024px) 100vw, 600px"
                             className="object-contain"

@@ -1,11 +1,9 @@
 "use client"
 
 import { Providers } from "./Providers"
-import { useEffect, useState } from 'react'
+import { useEffect } from 'react'
 
 export function ClientLayout({ children }: { children: React.ReactNode }) {
-    const [mounted, setMounted] = useState(false)
-
     useEffect(() => {
         const body = document.body
         if (body.hasAttribute('data-new-gr-c-s-check-loaded')) {
@@ -33,16 +31,8 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
             attributeFilter: ['data-new-gr-c-s-check-loaded', 'data-gr-ext-installed']
         })
 
-        setMounted(true)
-
-        return () => {
-            observer.disconnect()
-        }
+        return () => observer.disconnect()
     }, [])
-
-    if (!mounted) {
-        return null
-    }
 
     return (
         <div className="antialiased" suppressHydrationWarning>
@@ -51,4 +41,4 @@ export function ClientLayout({ children }: { children: React.ReactNode }) {
             </Providers>
         </div>
     )
-} 
+}

@@ -1,9 +1,9 @@
 "use client"
 
-import { useLanguageStore } from '@/stores/languageStore'
+import { useLocale } from '@/hooks/useLocale'
 
 export default function Stats() {
-    const { language } = useLanguageStore()
+    const { language } = useLocale()
 
     const items = [
         { n: '20', suffix: '+', label: language === 'zh' ? '年技術經驗' : 'years of expertise' },
@@ -34,4 +34,4 @@ export default function Stats() {
             </div>
         </div>
     )
-} 
+}

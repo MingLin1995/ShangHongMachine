@@ -1,6 +1,6 @@
 "use client"
 
-import { useLanguageStore } from '@/stores/languageStore'
+import { useLocale } from '@/hooks/useLocale'
 import { useState } from 'react'
 import emailjs from '@emailjs/browser'
 
@@ -16,7 +16,7 @@ function splitColon(s: string): { k: string; v: string } {
 }
 
 export default function Contact() {
-    const { language, translations } = useLanguageStore()
+    const { language, translations } = useLocale()
     const [formData, setFormData] = useState<FormData>({ name: '', email: '', message: '' })
     const [isSubmitting, setIsSubmitting] = useState(false)
     const [sent, setSent] = useState(false)
@@ -71,16 +71,21 @@ export default function Contact() {
     ]
 
     return (
-        <section id="contact" className="bg-[#f7f6f3] dark:bg-[#161412] py-24 transition-colors duration-300">
+        <section id="contact" className="bg-[#f7f6f3] dark:bg-[#161412] py-24 transition-colors duration-300" aria-labelledby="contact-heading">
             <div className="container mx-auto px-6 lg:px-14">
                 {/* Label */}
                 <div className="flex items-center gap-2.5 text-[12px] font-normal text-[#993333] tracking-[0.18em] uppercase mb-4">
                     <span className="h-px w-[18px] bg-[#993333]" />
-                    {language === 'zh' ? '聯絡我們 · CONTACT' : 'CONTACT · 聯絡'}
+                    {language === 'zh' ? '聯絡上泓機械 · CONTACT SHANG HONG MACHINE' : 'CONTACT SHANG HONG MACHINE · 聯絡上泓機械'}
                 </div>
 
                 {/* Headline */}
-                <h2 className="text-[32px] md:text-[48px] lg:text-[56px] leading-[1.08] tracking-[-0.025em] font-light text-[#0f0f0e] dark:text-[#f1ece4] m-0 mb-16 max-w-[720px] [text-wrap:balance]">
+                <h2 id="contact-heading" className="text-[32px] md:text-[48px] lg:text-[56px] leading-[1.08] tracking-[-0.025em] font-light text-[#0f0f0e] dark:text-[#f1ece4] m-0 mb-16 max-w-[720px] [text-wrap:balance]">
+                    <span className="sr-only">
+                        {language === 'zh'
+                            ? '聯絡上泓機械 Contact SHANG HONG MACHINE — '
+                            : 'Contact SHANG HONG MACHINE 聯絡上泓機械 — '}
+                    </span>
                     {language === 'zh' ? (
                         <>
                             歡迎來訊，<br />

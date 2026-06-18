@@ -1,7 +1,7 @@
 import { MetadataRoute } from "next";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = "https://www.shanghongmachine.com";
+  const baseUrl = "https://www.shanghong-tw.com";
   const lastModified = new Date();
 
   return [
@@ -10,24 +10,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
       lastModified,
       changeFrequency: "weekly",
       priority: 1,
+      alternates: {
+        languages: {
+          "zh-TW": baseUrl,
+          en: `${baseUrl}/en`,
+          "x-default": baseUrl,
+        },
+      },
     },
     {
-      url: `${baseUrl}/#about`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
-      url: `${baseUrl}/#products`,
+      url: `${baseUrl}/en`,
       lastModified,
       changeFrequency: "weekly",
       priority: 0.9,
-    },
-    {
-      url: `${baseUrl}/#contact`,
-      lastModified,
-      changeFrequency: "monthly",
-      priority: 0.7,
+      alternates: {
+        languages: {
+          "zh-TW": baseUrl,
+          en: `${baseUrl}/en`,
+          "x-default": baseUrl,
+        },
+      },
     },
     {
       url: `${baseUrl}/catalogs/shanghong-catalog.pdf`,
