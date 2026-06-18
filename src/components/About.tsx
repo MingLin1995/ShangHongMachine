@@ -1,21 +1,26 @@
 "use client"
 
-import { useLanguageStore } from '@/stores/languageStore'
+import { useLocale } from '@/hooks/useLocale'
 
 export default function About() {
-    const { language, translations } = useLanguageStore()
+    const { language, translations } = useLocale()
 
     return (
-        <section id="about" className="bg-[#fcfcfb] dark:bg-[#1a1916] py-24 lg:py-32 transition-colors duration-300">
+        <section id="about" className="bg-[#fcfcfb] dark:bg-[#1a1916] py-24 lg:py-32 transition-colors duration-300" aria-labelledby="about-heading">
             <div className="container mx-auto px-6 lg:px-14">
                 {/* Label */}
                 <div className="flex items-center gap-2.5 text-[12px] font-normal text-[#993333] tracking-[0.18em] uppercase mb-4">
                     <span className="h-px w-[18px] bg-[#993333]" />
-                    {language === 'zh' ? '關於我們 · ABOUT' : 'ABOUT · 關於'}
+                    {language === 'zh' ? '關於上泓機械 · ABOUT SHANG HONG MACHINE' : 'ABOUT SHANG HONG MACHINE · 關於上泓機械'}
                 </div>
 
                 {/* Headline */}
-                <h2 className="text-[32px] md:text-[48px] lg:text-[58px] leading-[1.08] tracking-[-0.025em] font-light text-[#0f0f0e] dark:text-[#f1ece4] m-0 mb-16 max-w-[720px] [text-wrap:balance]">
+                <h2 id="about-heading" className="text-[32px] md:text-[48px] lg:text-[58px] leading-[1.08] tracking-[-0.025em] font-light text-[#0f0f0e] dark:text-[#f1ece4] m-0 mb-16 max-w-[720px] [text-wrap:balance]">
+                    <span className="sr-only">
+                        {language === 'zh'
+                            ? '關於上泓機械 SHANG HONG MACHINE — '
+                            : 'About SHANG HONG MACHINE 上泓機械 — '}
+                    </span>
                     {language === 'zh' ? (
                         <>
                             誠信與專業，<br />

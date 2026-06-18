@@ -2,18 +2,19 @@
 
 import { ThemeProvider } from "@/contexts/ThemeContext"
 import { useEffect } from 'react'
-import { useLanguageStore } from '@/stores/languageStore'
+import { usePathname } from 'next/navigation'
 
 export function Providers({ children }: { children: React.ReactNode }) {
-    const { language } = useLanguageStore()
+    const pathname = usePathname()
 
     useEffect(() => {
-        document.documentElement.setAttribute('lang', language)
-    }, [language])
+        const lang = pathname?.startsWith('/en') ? 'en' : 'zh-TW'
+        document.documentElement.setAttribute('lang', lang)
+    }, [pathname])
 
     return (
         <ThemeProvider>
             {children}
         </ThemeProvider>
     )
-} 
+}

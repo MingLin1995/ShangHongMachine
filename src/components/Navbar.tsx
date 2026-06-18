@@ -1,23 +1,23 @@
 "use client"
 
 import { useState, useEffect } from 'react'
+import { useRouter, usePathname } from 'next/navigation'
 import { useTheme } from '@/contexts/ThemeContext'
-import { useLanguageStore } from '@/stores/languageStore'
+import { useLocale } from '@/hooks/useLocale'
 import Image from 'next/image'
 
 export default function Navbar() {
     const [isOpen, setIsOpen] = useState(false)
     const [scrolled, setScrolled] = useState(false)
-    const [mounted, setMounted] = useState(false)
+    const router = useRouter()
+    const pathname = usePathname()
     const { theme, toggleTheme } = useTheme()
-    const { language, translations, toggleLanguage } = useLanguageStore()
+    const { language, translations } = useLocale()
 
-    useEffect(() => {
-        setMounted(true)
-        document.title = language === 'zh'
-            ? '上泓機械 - 專業食品機械製造商'
-            : 'SHANG HONG MACHINE - Professional Food Machinery Manufacturer'
-    }, [language])
+    const toggleLanguage = () => {
+        const target = pathname?.startsWith('/en') ? '/' : '/en'
+        router.push(target)
+    }
 
     useEffect(() => {
         const onScroll = () => setScrolled(window.scrollY > 8)
@@ -38,11 +38,10 @@ export default function Navbar() {
 
     const scrollToTop = () => {
         window.scrollTo({ top: 0, behavior: 'smooth' })
-        window.history.pushState({}, '', '/')
-    }
-
-    if (!mounted) {
-        return null
+        const homePath = pathname?.startsWith('/en') ? '/en' : '/'
+        // 用 router.replace 而非 history.pushState，讓 Next router state 跟 URL 保持同步。
+        // scroll: false 避免覆蓋上面的 smooth scroll。
+        router.replace(homePath, { scroll: false })
     }
 
     const links = [
@@ -50,6 +49,7 @@ export default function Navbar() {
         { id: 'about', label: translations.nav.about, onClick: () => scrollToSection('about') },
         { id: 'cookers', label: language === 'zh' ? '炒食機' : 'Cookers', onClick: () => scrollToSection('cookers') },
         { id: 'mixers', label: language === 'zh' ? '攪拌機' : 'Mixers', onClick: () => scrollToSection('mixers') },
+        { id: 'faq', label: language === 'zh' ? '常見問題' : 'FAQ', onClick: () => scrollToSection('faq') },
         { id: 'contact', label: translations.nav.contact, onClick: () => scrollToSection('contact') },
     ]
 
@@ -58,12 +58,13 @@ export default function Navbar() {
             <nav className={`fixed top-0 left-0 right-0 z-50 h-[76px] flex items-center justify-between px-6 lg:px-14 transition-all duration-200 ${scrolled
                 ? 'bg-white/85 dark:bg-[#1a1916]/90 backdrop-blur-lg backdrop-saturate-150 border-b border-[#ececea] dark:border-white/5'
                 : 'bg-transparent border-b border-transparent'
-                }`}>
+                }`} aria-label={language === 'zh' ? '主要導覽' : 'Main navigation'}>
                 {/* Mobile hamburger */}
                 <button
                     className="lg:hidden p-2 text-gray-800 dark:text-[#f1ece4]"
                     onClick={() => setIsOpen(!isOpen)}
-                    aria-label="menu"
+                    aria-label={language === 'zh' ? '選單' : 'menu'}
+                    aria-expanded={isOpen}
                 >
                     {isOpen ? (
                         <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.6}>
@@ -77,10 +78,10 @@ export default function Navbar() {
                 </button>
 
                 {/* Brand */}
-                <button onClick={scrollToTop} className="flex items-center gap-3.5 group">
+                <button onClick={scrollToTop} className="flex items-center gap-3.5 group" aria-label={language === 'zh' ? '上泓機械首頁' : 'SHANG HONG MACHINE home'}>
                     <Image
                         src="/images/logo.png"
-                        alt="上泓機械"
+                        alt={language === 'zh' ? '上泓機械 SHANG HONG MACHINE logo' : 'SHANG HONG MACHINE 上泓機械 logo'}
                         width={40}
                         height={40}
                         className="h-10 w-auto object-contain dark:brightness-0 dark:invert"
@@ -110,13 +111,14 @@ export default function Navbar() {
                     <button
                         className="h-10 w-10 flex items-center justify-center rounded-full text-[#0f0f0e] dark:text-[#f1ece4] hover:bg-[#f7f6f3] dark:hover:bg-white/5 transition-colors"
                         onClick={toggleTheme}
-                        aria-label="theme"
+                        aria-label={language === 'zh' ? '切換主題' : 'Toggle theme'}
                     >
                         {theme === 'light' ? '☾' : '☀'}
                     </button>
                     <button
                         className="px-5 py-2.5 rounded-full border border-[#0f0f0e] dark:border-white/20 text-[14px] font-bold text-[#0f0f0e] dark:text-[#f1ece4] hover:bg-[#f7f6f3] dark:hover:bg-white/5 transition-colors"
                         onClick={toggleLanguage}
+                        aria-label={language === 'zh' ? 'Switch to English' : '切換為中文'}
                     >
                         {language === 'zh' ? 'EN' : '中'}
                     </button>
@@ -157,4 +159,4 @@ export default function Navbar() {
             <div className="h-[76px]" />
         </div>
     )
-} 
+}
