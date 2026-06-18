@@ -7,7 +7,7 @@ export default function robots(): MetadataRoute.Robots {
       allow: "/",
       disallow: ["/api/", "/_next/", "/static/"],
     },
-    sitemap: "https://www.shanghongmachine.com/sitemap.xml",
-    host: "https://www.shanghongmachine.com",
+    sitemap: "https://www.shanghong-tw.com/sitemap.xml",
+    host: "https://www.shanghong-tw.com",
   };
 }

@@ -18,12 +18,10 @@ const ThemeContext = createContext<ThemeContextType>(defaultContext)
 
 export function ThemeProvider({ children }: { children: ReactNode }) {
     const [theme, setTheme] = useState<Theme>('light')
-    const [mounted, setMounted] = useState(false)
 
     useEffect(() => {
-        setMounted(true)
         const savedTheme = localStorage.getItem('theme') as Theme
-        if (savedTheme) {
+        if (savedTheme === 'light' || savedTheme === 'dark') {
             setTheme(savedTheme)
             document.documentElement.setAttribute('data-theme', savedTheme)
             if (savedTheme === 'dark') {
@@ -45,10 +43,6 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
         }
     }
 
-    if (!mounted) {
-        return null
-    }
-
     return (
         <ThemeContext.Provider value={{ theme, toggleTheme }}>
             {children}
@@ -62,4 +56,4 @@ export const useTheme = () => {
         throw new Error('useTheme must be used within a ThemeProvider')
     }
     return context
-} 
+}
