@@ -53,20 +53,20 @@ const BUSINESS_SCHEMA_ZH = {
                 "@type": "OfferCatalog",
                 "name": "工業用炒食機系列 Cooking Mixer Series",
                 "itemListElement": [
-                    { "@type": "Product", "name": "SH-11F 固定式工業炒食機", "model": "SH-11F" },
-                    { "@type": "Product", "name": "SH-11T 傾倒式工業炒食機", "model": "SH-11T" },
-                    { "@type": "Product", "name": "SH-12T 傾倒式工業炒食機（加大）", "model": "SH-12T" },
-                    { "@type": "Product", "name": "SH-20S 蒸氣加熱傾倒式工業炒食機", "model": "SH-20S" }
+                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-11F 固定式工業炒食機", "model": "SH-11F" } },
+                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-11T 傾倒式工業炒食機", "model": "SH-11T" } },
+                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-12T 傾倒式工業炒食機（加大）", "model": "SH-12T" } },
+                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-20S 蒸氣加熱傾倒式工業炒食機", "model": "SH-20S" } }
                 ]
             },
             {
                 "@type": "OfferCatalog",
                 "name": "工業用攪拌機系列 Food Mixer Series",
                 "itemListElement": [
-                    { "@type": "Product", "name": "SH-201 工業用攪拌機", "model": "SH-201" },
-                    { "@type": "Product", "name": "SH-201H 工業用攪拌機", "model": "SH-201H" },
-                    { "@type": "Product", "name": "SH-301 工業用攪拌機", "model": "SH-301" },
-                    { "@type": "Product", "name": "SH-401 工業用攪拌機", "model": "SH-401" }
+                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-201 工業用攪拌機", "model": "SH-201" } },
+                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-201H 工業用攪拌機", "model": "SH-201H" } },
+                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-301 工業用攪拌機", "model": "SH-301" } },
+                    { "@type": "Offer", "priceCurrency": "TWD", "availability": "https://schema.org/InStock", "itemOffered": { "@type": "Product", "name": "SH-401 工業用攪拌機", "model": "SH-401" } }
                 ]
             }
         ]

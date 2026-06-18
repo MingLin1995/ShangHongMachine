@@ -12,12 +12,39 @@ const cookerVariantName: Record<string, { zh: string; en: string }> = {
   "SH-20S": { zh: "蒸氣加熱傾倒式工業炒食機", en: "Steam-Heated Tilting-Type Industrial Cooking Mixer" },
 };
 
+// B2B 機械沒有固定售價，售價以詢價為準。
+// 此 offers 結構讓 Google 認得這是合法的 Product schema（必須有 offers/review/aggregateRating 其中一項），
+// 同時用 priceSpecification 點明「需洽詢報價」、url 指向頁面內聯絡區塊，
+// 避免 Rich Results 顯示假的「$0 / Free」。
+function buildOffer(lang: "zh" | "en") {
+  const contactUrl = lang === "zh" ? `${SITE}/#contact` : `${SITE}/en/#contact`;
+  const sellerName = lang === "zh" ? MANUFACTURER_ZH : MANUFACTURER_EN;
+  return {
+    "@type": "Offer",
+    url: contactUrl,
+    availability: "https://schema.org/InStock",
+    itemCondition: "https://schema.org/NewCondition",
+    priceCurrency: "TWD",
+    priceSpecification: {
+      "@type": "PriceSpecification",
+      priceCurrency: "TWD",
+      valueAddedTaxIncluded: false,
+      description: lang === "zh" ? "請洽詢報價" : "Price on request — contact for quote",
+    },
+    seller: {
+      "@type": "Organization",
+      name: sellerName,
+    },
+  };
+}
+
 export function buildProductSchemas(lang: "zh" | "en") {
   const brandObj = { "@type": "Brand", name: BRAND };
   const manufacturerObj = {
     "@type": "Organization",
     name: lang === "zh" ? MANUFACTURER_ZH : MANUFACTURER_EN,
   };
+  const offerObj = buildOffer(lang);
 
   const cookers = productData.cookers.types.map((c) => {
     const variant = cookerVariantName[c.model];
@@ -41,6 +68,7 @@ export function buildProductSchemas(lang: "zh" | "en") {
       additionalProperty: [
         { "@type": "PropertyValue", name: lang === "zh" ? "容量規格" : "Capacity", value: capacities },
       ],
+      offers: offerObj,
     };
   });
 
@@ -70,6 +98,7 @@ export function buildProductSchemas(lang: "zh" | "en") {
         { "@type": "PropertyValue", name: lang === "zh" ? "機械尺寸" : "Dimensions", value: m.specs.dimensions },
         { "@type": "PropertyValue", name: lang === "zh" ? "淨重" : "Net weight", value: m.specs.weight },
       ],
+      offers: offerObj,
     };
   });
 
