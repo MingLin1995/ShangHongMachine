@@ -44,28 +44,35 @@ export default function Hero() {
                     <h1 id="hero-heading" className="text-[38px] sm:text-[54px] lg:text-[76px] leading-[1.02] tracking-[-0.03em] text-[#0f0f0e] dark:text-[#f1ece4] m-0 [text-wrap:balance] font-light">
                         <span className="sr-only">
                             {language === 'zh'
-                                ? '上泓機械 SHANG HONG MACHINE — 台灣專業食品機械製造商，工業用攪拌機與炒食機。'
-                                : 'SHANG HONG MACHINE 上泓機械 — Taiwan professional food machinery manufacturer of industrial food mixers and cookers. '}
+                                ? '上泓機械 SHANG HONG MACHINE — 專業製造食品機械，攪拌機 / 炒食機。'
+                                : 'SHANG HONG MACHINE — Professional food machinery manufacturer, food mixer / cooking mixer.'}
                         </span>
                         {language === 'zh' ? (
                             <>
-                                專為料理<span className="text-[#737370] dark:text-[#a8a39b]">，</span>
-                                <br />
-                                而生的<span className="font-bold">食品機械。</span>
+                                專業製造<br />
+                                <span className="font-bold">食品機械</span>
                             </>
                         ) : (
                             <>
-                                Built for<br />
-                                the rhythm of<br />
-                                <span className="font-bold">professional kitchens.</span>
+                                Professional<br />
+                                <span className="font-bold">Food Machinery</span>
                             </>
                         )}
                     </h1>
 
-                    <p className="text-[17px] leading-[1.6] text-[#3a3a36] dark:text-[#d1ccc4] mt-8 max-w-[420px] [text-wrap:pretty]">
-                        {language === 'zh'
-                            ? '上泓機械（SHANG HONG MACHINE）的工業用攪拌機與炒食機，為食品加工廠、餐廳、創業工作室打造，從台中潭子出貨。'
-                            : 'SHANG HONG MACHINE (上泓機械) — industrial food mixers and cookers built for food-processing plants, restaurants and startup kitchens — shipped from Tanzi, Taichung, Taiwan.'}
+                    <p className="text-[18px] sm:text-[22px] leading-[1.5] text-[#3a3a36] dark:text-[#d1ccc4] mt-8 max-w-[420px] [text-wrap:pretty] font-medium">
+                        {language === 'zh' ? (
+                            <>
+                                攪拌機 / 炒食機
+                                <span className="block text-[14px] sm:text-[15px] text-[#737370] dark:text-[#a8a39b] tracking-wider uppercase font-semibold mt-1.5">
+                                    FOOD MIXER / COOKING MIXER
+                                </span>
+                            </>
+                        ) : (
+                            <span className="text-[16px] sm:text-[18px] text-[#737370] dark:text-[#a8a39b] tracking-wider uppercase font-semibold">
+                                FOOD MIXER / COOKING MIXER
+                            </span>
+                        )}
                     </p>
 
                     <div className="flex flex-wrap gap-2.5 mt-9">
