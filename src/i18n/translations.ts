@@ -126,7 +126,7 @@ export const productData: ProductData = {
         model: "SH-201",
         specs: {
           power: "1/2HP",
-          capacity: "20 LITER",
+          capacity: "20 L",
           doughCapacity: "3 kg",
           bowlDiameter: "340 mm",
           bowlDepth: "300 mm",
@@ -219,9 +219,9 @@ export const translations = {
           確保食材風味完美呈現，讓每一批次都能維持一致品質
 
           【多鍋具選擇】
-          ・單層鍋：適合一般炒菜需求
-          ・導熱油鍋：確保均勻加熱
-          ・蒸汽鍋：特殊加工處理
+          ・單層鍋：適用於直火加熱之食材
+          ・導熱油鍋：加熱均勻，不會產生食材燒焦
+          ・蒸汽鍋：加熱均勻，不會產生食材燒焦
 
           【適用範圍】
           ・糖果類：花生糖、糖水
@@ -350,9 +350,9 @@ export const translations = {
           Precise temperature control for perfect flavor presentation
           
           [POT OPTIONS]
-          ・Single Layer: Standard cooking
-          ・Heat Conducting: Even heating
-          ・Steam Pot: Special processing
+          ・Single Layer: Suitable for ingredients heated by direct fire
+          ・Heat Conducting: Even heating, prevents ingredients from burning
+          ・Steam Pot: Even heating, prevents ingredients from burning
           
           [APPLICATIONS]
           ・Confectionery: Peanut candy, Syrup
